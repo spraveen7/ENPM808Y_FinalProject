@@ -116,7 +116,7 @@ void fp::api::clearAllText() {
     std::cout << "clearAllText" << std::endl;
 }
 
-bool fp:api::wasReset() {
+bool fp::api::wasReset() {
     std::cout << "wasReset" << std::endl;
     std::string response;
     std::cin >> response;
