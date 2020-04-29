@@ -109,12 +109,54 @@ CMakeFiles/Final_Project.dir/src/LandBasedTracked/landbasedtracked.cpp.s: cmake_
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Final_Project.dir/src/LandBasedTracked/landbasedtracked.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/karan/CLionProjects/Final_Project/src/LandBasedTracked/landbasedtracked.cpp -o CMakeFiles/Final_Project.dir/src/LandBasedTracked/landbasedtracked.cpp.s
 
+CMakeFiles/Final_Project.dir/src/DFSAlgorithm/dfsalgorithm.cpp.o: CMakeFiles/Final_Project.dir/flags.make
+CMakeFiles/Final_Project.dir/src/DFSAlgorithm/dfsalgorithm.cpp.o: ../src/DFSAlgorithm/dfsalgorithm.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/karan/CLionProjects/Final_Project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Final_Project.dir/src/DFSAlgorithm/dfsalgorithm.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Final_Project.dir/src/DFSAlgorithm/dfsalgorithm.cpp.o -c /home/karan/CLionProjects/Final_Project/src/DFSAlgorithm/dfsalgorithm.cpp
+
+CMakeFiles/Final_Project.dir/src/DFSAlgorithm/dfsalgorithm.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Final_Project.dir/src/DFSAlgorithm/dfsalgorithm.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/karan/CLionProjects/Final_Project/src/DFSAlgorithm/dfsalgorithm.cpp > CMakeFiles/Final_Project.dir/src/DFSAlgorithm/dfsalgorithm.cpp.i
+
+CMakeFiles/Final_Project.dir/src/DFSAlgorithm/dfsalgorithm.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Final_Project.dir/src/DFSAlgorithm/dfsalgorithm.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/karan/CLionProjects/Final_Project/src/DFSAlgorithm/dfsalgorithm.cpp -o CMakeFiles/Final_Project.dir/src/DFSAlgorithm/dfsalgorithm.cpp.s
+
+CMakeFiles/Final_Project.dir/src/API/api.cpp.o: CMakeFiles/Final_Project.dir/flags.make
+CMakeFiles/Final_Project.dir/src/API/api.cpp.o: ../src/API/api.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/karan/CLionProjects/Final_Project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Final_Project.dir/src/API/api.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Final_Project.dir/src/API/api.cpp.o -c /home/karan/CLionProjects/Final_Project/src/API/api.cpp
+
+CMakeFiles/Final_Project.dir/src/API/api.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Final_Project.dir/src/API/api.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/karan/CLionProjects/Final_Project/src/API/api.cpp > CMakeFiles/Final_Project.dir/src/API/api.cpp.i
+
+CMakeFiles/Final_Project.dir/src/API/api.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Final_Project.dir/src/API/api.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/karan/CLionProjects/Final_Project/src/API/api.cpp -o CMakeFiles/Final_Project.dir/src/API/api.cpp.s
+
+CMakeFiles/Final_Project.dir/src/MazeFiles/mazefile.cpp.o: CMakeFiles/Final_Project.dir/flags.make
+CMakeFiles/Final_Project.dir/src/MazeFiles/mazefile.cpp.o: ../src/MazeFiles/mazefile.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/karan/CLionProjects/Final_Project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Final_Project.dir/src/MazeFiles/mazefile.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Final_Project.dir/src/MazeFiles/mazefile.cpp.o -c /home/karan/CLionProjects/Final_Project/src/MazeFiles/mazefile.cpp
+
+CMakeFiles/Final_Project.dir/src/MazeFiles/mazefile.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Final_Project.dir/src/MazeFiles/mazefile.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/karan/CLionProjects/Final_Project/src/MazeFiles/mazefile.cpp > CMakeFiles/Final_Project.dir/src/MazeFiles/mazefile.cpp.i
+
+CMakeFiles/Final_Project.dir/src/MazeFiles/mazefile.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Final_Project.dir/src/MazeFiles/mazefile.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/karan/CLionProjects/Final_Project/src/MazeFiles/mazefile.cpp -o CMakeFiles/Final_Project.dir/src/MazeFiles/mazefile.cpp.s
+
 # Object files for target Final_Project
 Final_Project_OBJECTS = \
 "CMakeFiles/Final_Project.dir/main.cpp.o" \
 "CMakeFiles/Final_Project.dir/src/LandBasedRobot/landbasedrobot.cpp.o" \
 "CMakeFiles/Final_Project.dir/src/LandBasedWheeled/landbasedwheeled.cpp.o" \
-"CMakeFiles/Final_Project.dir/src/LandBasedTracked/landbasedtracked.cpp.o"
+"CMakeFiles/Final_Project.dir/src/LandBasedTracked/landbasedtracked.cpp.o" \
+"CMakeFiles/Final_Project.dir/src/DFSAlgorithm/dfsalgorithm.cpp.o" \
+"CMakeFiles/Final_Project.dir/src/API/api.cpp.o" \
+"CMakeFiles/Final_Project.dir/src/MazeFiles/mazefile.cpp.o"
 
 # External object files for target Final_Project
 Final_Project_EXTERNAL_OBJECTS =
@@ -123,9 +165,12 @@ Final_Project: CMakeFiles/Final_Project.dir/main.cpp.o
 Final_Project: CMakeFiles/Final_Project.dir/src/LandBasedRobot/landbasedrobot.cpp.o
 Final_Project: CMakeFiles/Final_Project.dir/src/LandBasedWheeled/landbasedwheeled.cpp.o
 Final_Project: CMakeFiles/Final_Project.dir/src/LandBasedTracked/landbasedtracked.cpp.o
+Final_Project: CMakeFiles/Final_Project.dir/src/DFSAlgorithm/dfsalgorithm.cpp.o
+Final_Project: CMakeFiles/Final_Project.dir/src/API/api.cpp.o
+Final_Project: CMakeFiles/Final_Project.dir/src/MazeFiles/mazefile.cpp.o
 Final_Project: CMakeFiles/Final_Project.dir/build.make
 Final_Project: CMakeFiles/Final_Project.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/karan/CLionProjects/Final_Project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Final_Project"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/karan/CLionProjects/Final_Project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable Final_Project"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Final_Project.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

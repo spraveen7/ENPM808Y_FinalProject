@@ -1,8 +1,11 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Final_Project.dir/main.cpp.o"
+  "CMakeFiles/Final_Project.dir/src/API/api.cpp.o"
+  "CMakeFiles/Final_Project.dir/src/DFSAlgorithm/dfsalgorithm.cpp.o"
   "CMakeFiles/Final_Project.dir/src/LandBasedRobot/landbasedrobot.cpp.o"
   "CMakeFiles/Final_Project.dir/src/LandBasedTracked/landbasedtracked.cpp.o"
   "CMakeFiles/Final_Project.dir/src/LandBasedWheeled/landbasedwheeled.cpp.o"
+  "CMakeFiles/Final_Project.dir/src/MazeFiles/mazefile.cpp.o"
   "Final_Project"
   "Final_Project.pdb"
 )

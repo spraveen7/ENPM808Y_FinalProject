@@ -87,6 +87,18 @@
 		<Unit filename="/home/karan/CLionProjects/Final_Project/main.cpp">
 			<Option target="Final_Project"/>
 		</Unit>
+		<Unit filename="/home/karan/CLionProjects/Final_Project/src/API/api.cpp">
+			<Option target="Final_Project"/>
+		</Unit>
+		<Unit filename="/home/karan/CLionProjects/Final_Project/src/API/api.h">
+			<Option target="Final_Project"/>
+		</Unit>
+		<Unit filename="/home/karan/CLionProjects/Final_Project/src/DFSAlgorithm/dfsalgorithm.cpp">
+			<Option target="Final_Project"/>
+		</Unit>
+		<Unit filename="/home/karan/CLionProjects/Final_Project/src/DFSAlgorithm/dfsalgorithm.h">
+			<Option target="Final_Project"/>
+		</Unit>
 		<Unit filename="/home/karan/CLionProjects/Final_Project/src/LandBasedRobot/landbasedrobot.cpp">
 			<Option target="Final_Project"/>
 		</Unit>
@@ -103,6 +115,12 @@
 			<Option target="Final_Project"/>
 		</Unit>
 		<Unit filename="/home/karan/CLionProjects/Final_Project/src/LandBasedWheeled/landbasedwheeled.h">
+			<Option target="Final_Project"/>
+		</Unit>
+		<Unit filename="/home/karan/CLionProjects/Final_Project/src/MazeFiles/mazefile.cpp">
+			<Option target="Final_Project"/>
+		</Unit>
+		<Unit filename="/home/karan/CLionProjects/Final_Project/src/MazeFiles/mazefile.h">
 			<Option target="Final_Project"/>
 		</Unit>
 		<Unit filename="/home/karan/CLionProjects/Final_Project/CMakeLists.txt">
