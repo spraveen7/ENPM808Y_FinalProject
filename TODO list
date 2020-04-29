@@ -1,0 +1,16 @@
+To Do list
+Update time and by: 29th April 12:26 AM Karan Sutradhar
+1. Changing RWA3 to final project as per pdf, adding new attributes and methods. (done)
+2. Changing comments in similar order (done)
+3. Changing the constructors, destructors for each class. (done)
+4. Changing accessors and mutators directly in class definitions (.h). (done)
+5. Checking if need of deep copy constructors for each class.
+6. Modifying classes to allow dynamic binding. (done)
+7. Changing CPP files for LandTracked and LandWheeled
+8. Making main CPP file
+9. Making a suitable maze
+10. Adding API files
+11. Creating DFS algorithm using pseudo code
+12. Making small changes in API and Main.cpp
+13. Comments and checking whether following naming conventions
+14. Creating Doxy file and documentation properly
