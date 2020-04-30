@@ -108,5 +108,47 @@ namespace fp {
          */
 
         ~LandBasedTracked(){}
+
+    public:
+        //--mutators
+
+        /**
+         * @brief it is a setter method for the x-axis
+         * @param int x_
+         * @return Returns none
+         */
+        void set_x_(int x_){
+            x_ = x_;
+        }
+
+        /**
+         * @brief it is a setter method for the y-axis
+         * @param int y_
+         * @return Returns none
+         */
+        void set_y_(int y_){
+            y_ = y_;
+        }
+
+
+        //--accessors
+
+        /**
+         * @brief it is a getter method for the x-axis
+         * @param none
+         * @return Returns int x_
+         */
+        int get_x_() const{
+            return x_;
+        }
+        /**
+         * @brief it is a getter method for the y-axis
+         * @param none
+         * @return Returns int y_
+         */
+        int get_y_() const {
+            return y_;
+        }
+
     };//--Class LandBasedTracked
 }//--namespace fp

@@ -30,11 +30,27 @@
 #include "../LandBasedTracked/landbasedtracked.h"
 #include "../API/api.h"
 #include <array>
+#include "../MazeFiles/mazefile.h"
 #include <vector>
 #include <stack>
+#include <utility>
+#include <algorithm>
+#include <map>
+
 
 namespace fp{
     class dfsalgorithm {
-        
+    public:
+        int x_;
+        int y_;
+        char direction_;
+        std::stack<int> stack_x;
+        std::stack<int> stack_y;
+        std::array<std::array<bool, 16>, 16> visited;
+
+        int IsGoal(int, int);
+        void Solve(std::shared_ptr<fp::LandBasedRobot>);
+        void FindPath(std::shared_ptr<fp::LandBasedRobot> robot,int x_,int y_);
+
     };
 }
