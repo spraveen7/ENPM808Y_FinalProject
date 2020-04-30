@@ -30,3 +30,19 @@ Update time and by: 29th April 12:47 PM Karan Sutradhar
 12. Making small changes in API and Main.cpp
 13. Comments and checking whether following naming conventions
 14. Creating Doxy file and documentation properly
+
+Update time and by: 30th April 3:29 AM Karan Sutradhar
+1. Changing RWA3 to final project as per pdf, adding new attributes and methods. (done)
+2. Changing comments in similar order (done)
+3. Changing the constructors, destructors for each class. (done)
+4. Changing accessors and mutators directly in class definitions (.h). (done)
+5. Checking if need of deep copy constructors for each class. (done/not needed)
+6. Modifying classes to allow dynamic binding. (done)
+7. Changing CPP files for LandTracked and LandWheeled (done)
+8. Making main CPP file (done)
+9. Making a suitable maze from micromouse simulator and making changes in mazefiles to read maze (done- praveen updated)
+10. Adding API files (done)
+11. Creating DFS algorithm using pseudo code (coded with errors/ need working- used vectors previously now will use stacks)
+12. Making small changes in API and Main.cpp (done)
+13. Comments and checking whether following naming conventions
+14. Creating Doxy file and documentation properly
