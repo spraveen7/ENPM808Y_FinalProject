@@ -3,4 +3,4 @@ project(Final_Project)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Final_Project main.cpp src/LandBasedRobot/landbasedrobot.cpp src/LandBasedRobot/landbasedrobot.h src/LandBasedWheeled/landbasedwheeled.cpp src/LandBasedWheeled/landbasedwheeled.h src/LandBasedTracked/landbasedtracked.cpp src/LandBasedTracked/landbasedtracked.h src/DFSAlgorithm/dfsalgorithm.cpp src/DFSAlgorithm/dfsalgorithm.h src/API/api.cpp src/API/api.h src/MazeFiles/mazefile.cpp src/MazeFiles/mazefile.h)
+add_executable(Final_Project main.cpp src/LandBasedRobot/landbasedrobot.cpp src/LandBasedRobot/landbasedrobot.h src/Maze/maze.cpp src/Maze/maze.h src/Algorithm/algorithm.cpp src/Algorithm/algorithm.h src/API/api.cpp src/API/api.h src/LandBasedTracked/landbasedtracked.cpp src/LandBasedTracked/landbasedtracked.h src/LandBasedWheeled/landbasedwheeled.cpp src/LandBasedWheeled/landbasedwheeled.h)

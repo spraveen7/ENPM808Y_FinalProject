@@ -1,10 +1,8 @@
-#include "dfsalgorithm.h"
-#include<iostream>
-#include <vector>
-#include <stack>
-#include <array>
+//
+// Created by Sudo on 5/7/2020.
+//
 
-
+#include "algorithm.h"
 
 
 namespace fp{
@@ -17,7 +15,7 @@ namespace fp{
         ~Node(){}
     };
 
-    class DFSAlgorithm {
+    class Algorithm {
     public:
         int height, width;
         char current_direction_;
@@ -29,7 +27,7 @@ namespace fp{
         std::array<std::array<bool, 16>, 16> visited_node_;
 
     public:
-        DFSAlgorithm()
+        Algorithm()
         {
             for(int i = 0; i < 16 ; ++i)
                 for (int j = 0; j < 16 ; ++j)
@@ -106,7 +104,7 @@ namespace fp{
                 stack_.pop();
                 /* ---> Step 05: check IsGoal <--- */
                 if (current_node_ == goal) break;
-                /* ---> Step 06: Check Visited <--- */
+                    /* ---> Step 06: Check Visited <--- */
                 else if (!IsVisited(current_node_)) FindNeighbours(current_node_);
                 /* ---> Step 07: Mark visited <--- */
                 visited_node_[current_node_[0]][current_node_[1]] = true;

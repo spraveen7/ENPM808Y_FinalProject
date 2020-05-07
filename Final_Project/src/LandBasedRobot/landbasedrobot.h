@@ -6,7 +6,6 @@
 * Sudharsan Balasubramani (116298636)
 * Sai Bhamidipati (117023640)
 * Ashwin Prabhakaran (117030402)
-* Girish Ethirajan
 *
 * @version 1.0
 *
@@ -59,7 +58,7 @@ namespace fp {
          * @param int y_
          * @return Returns none
          */
-        virtual void MoveForward(int x_, int y_) = 0;     //--Moves the robot forward
+        virtual void MoveForward(int x, int y) = 0;     //--Moves the robot forward
 
         /**
          * @brief it is a pure virtual method that rotates the robot 90°counter-clockwise in the maze
@@ -67,7 +66,7 @@ namespace fp {
          * @param int y_
          * @return Returns none
          */
-        virtual void TurnLeft(int x_, int y_) = 0;       //--Rotates the robot 90°counter-clockwise
+        virtual void TurnLeft(int x, int y) = 0;       //--Rotates the robot 90°counter-clockwise
 
         /**
          * @brief it is a pure virtual method that rotates the robot 90°clockwise in the maze
@@ -75,7 +74,7 @@ namespace fp {
          * @param int y_
          * @return Returns none
          */
-        virtual void TurnRight(int x_, int y_) = 0;      //--Rotates the robot 90°clockwise
+        virtual void TurnRight(int x, int y) = 0;      //--Rotates the robot 90°clockwise
 
     protected:
         //--constructor
@@ -92,16 +91,16 @@ namespace fp {
          * @param char direction_
          * @return Returns none
          */
-        LandBasedRobot(std::string name_, double speed_, double width_, double length_, double height_, double capacity_, int x_, int y_, char direction_){
-            name_ =  name_;
-            speed_ = speed_;
-            width_ = width_;
-            length_ = length_;
-            height_ = height_;
-            capacity_ = capacity_;
-            direction_ = direction_;
-            x_ = x_;
-            y_ = y_;
+        LandBasedRobot(std::string name, double speed, double width, double length, double height, double capacity, int x, int y, char direction){
+            this->name_ =  name;
+            this->speed_ = speed;
+            this->width_ = width;
+            this->length_ = length;
+            this->height_ = height;
+            this->capacity_ = capacity;
+            this->direction_ = direction;
+            this->x_ = x;
+            this->y_ = y;
         }
 
         //--destructor
@@ -118,32 +117,39 @@ namespace fp {
 
         /**
          * @brief it is a setter method for the x-axis
-         * @param int x_
+         * @param int x
          * @return Returns none
          */
-        void set_x_(int x_){
-            x_ = x_;
+        void set_x_(int x){
+            this->x_ = x;
         }
 
         /**
          * @brief it is a setter method for the y-axis
-         * @param int y_
+         * @param int y
          * @return Returns none
          */
-        void set_y_(int y_){
-            y_ = y_;
+        void set_y_(int y){
+            this->y_ = y;
         }
 
+        /**
+         * @brief it is a setter method for the direction
+         * @param int direction
+         * @return Returns none
+         */
+        void set_direction_(char direction){
+            this->direction_ = direction;
+        }
 
         //--accessors
-
         /**
          * @brief it is a getter method for the x-axis
          * @param none
          * @return Returns int x_
          */
         int get_x_() const{
-            return x_;
+            return this->x_;
         }
 
         /**
@@ -152,7 +158,17 @@ namespace fp {
          * @return Returns int y_
          */
         int get_y_() const{
-            return y_;
+            return this->y_;
         }
+
+        /**
+         * @brief it is a getter method for direction
+         * @param none
+         * @return Returns int y_
+         */
+        int get_direction_() const{
+            return this->direction_;
+        }
+
     };//--Class LandBasedRobot
 }//--namespace fp

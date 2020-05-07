@@ -1,12 +1,15 @@
+//
+// Created by Sudo on 5/7/2020.
+//
+
 /**
-* @file dfsalgorithm.h
+* @file algorithm.h
 * @authors Group 4
 *
 * Karan Sutradhar (117037272)
 * Sudharsan Balasubramani (116298636)
 * Sai Bhamidipati (117023640)
 * Ashwin Prabhakaran (117030402)
-* Girish Ethirajan
 *
 * @version 1.0
 *
@@ -19,38 +22,31 @@
 *
 * @section DESCRIPTION
 *
-*  This is the header for the class dfsalgorithm, implementing the Depth First Search algorithm
+*  This is the header for the class Algorithm, implementing the Depth First Search algorithm
 *  in this class and navigating the robot through the maze.
 */
 
-#pragma once
+
+
+#ifndef FINAL_PROJECT_ALGORITHM_H
+#define FINAL_PROJECT_ALGORITHM_H
+
 #include <string>
 #include<iostream>
+#include "../API/api.h"
+#include "../LandBasedRobot/landbasedrobot.h"
 #include "../LandBasedWheeled/landbasedwheeled.h"
 #include "../LandBasedTracked/landbasedtracked.h"
-#include "../API/api.h"
-#include <array>
-#include "../MazeFiles/mazefile.h"
-#include <vector>
-#include <stack>
-#include <utility>
-#include <algorithm>
+#include "../Maze/maze.h"
 #include <map>
+#include <stack>
+#include <array>
+#include <vector>
+#include <utility>
 
 
 namespace fp{
-    class dfsalgorithm {
-    public:
-        int x_;
-        int y_;
-        char direction_;
-        std::stack<int> stack_x;
-        std::stack<int> stack_y;
-        std::array<std::array<bool, 16>, 16> visited;
-
-        int IsGoal(int, int);
-        void Solve(std::shared_ptr<fp::LandBasedRobot>);
-        void FindPath(std::shared_ptr<fp::LandBasedRobot> robot,int x_,int y_);
-
-    };
 }
+
+
+#endif //FINAL_PROJECT_ALGORITHM_H
