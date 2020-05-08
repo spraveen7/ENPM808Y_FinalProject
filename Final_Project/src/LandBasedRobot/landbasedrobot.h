@@ -42,6 +42,7 @@ namespace fp {
         int y_;                 //--Y coordinate of the robot in the maze
         char direction_;        //--Direction that the robot is facing in the maze
 
+    public:
         //--methods prototypes
 
         /**
@@ -49,7 +50,7 @@ namespace fp {
          * @param string
          * @return Returns direction_
          */
-        virtual char GetDirection(std::string) = 0 ;       //--Get the direction of the robot in the maze
+        virtual char GetDirection(std::string) = 0 ;                //--Get the direction of the robot in the maze
 
         /**
          * @brief it is a pure virtual method that moves the robot forward in the maze
@@ -57,7 +58,7 @@ namespace fp {
          * @param int y
          * @return Returns none
          */
-        virtual void MoveForward(int x, int y) = 0;     //--Moves the robot forward
+        virtual void MoveForward(int x, int y) = 0;                 //--Moves the robot forward
 
         /**
          * @brief it is a pure virtual method that rotates the robot 90°counter-clockwise in the maze
@@ -65,7 +66,7 @@ namespace fp {
          * @param int y
          * @return Returns none
          */
-        virtual void TurnLeft(int x, int y) = 0;       //--Rotates the robot 90°counter-clockwise
+        virtual void TurnLeft(int x, int y) = 0;                    //--Rotates the robot 90°counter-clockwise
 
         /**
          * @brief it is a pure virtual method that rotates the robot 90°clockwise in the maze
@@ -73,7 +74,21 @@ namespace fp {
          * @param int y
          * @return Returns none
          */
-        virtual void TurnRight(int x, int y) = 0;      //--Rotates the robot 90°clockwise
+        virtual void TurnRight(int x, int y) = 0;                   //--Rotates the robot 90°clockwise
+
+        /**
+        * @brief it is a pure virtual method that picks up an object
+        * @param string pickup
+        * @return Returns none
+        */
+        virtual void PickUp(std::string pickup) = 0;                //--picks up the payload
+
+        /**
+        * @brief it is a pure virtual method that release the robot gripper
+        * @param string release
+        * @return Returns none
+        */
+        virtual void Release(std::string release) = 0;              //--Releases the payload
 
     public:
         //--mutators
@@ -212,6 +227,17 @@ namespace fp {
          * @brief default constructor of the class LandBasedRobot
          */
         LandBasedRobot(): name_{},speed_ {}, width_ {}, length_ {}, height_ {}, capacity_ {},  x_ {}, y_ {}, direction_{}{}
+
+        /**
+         * @brief it is a constructor of the class LandBasedRobot
+         * @param string name
+         * @param int x
+         * @param int y
+         * @return Returns none
+         */
+        LandBasedRobot(std::string &name, int x, int y):
+        name_ {name}, speed_ {}, width_ {}, length_ {}, height_ {}, capacity_ {},  x_ {x}, y_ {y}, direction_{}{}
+
 
         /**
          * @brief it is a constructor of the class LandBasedRobot
