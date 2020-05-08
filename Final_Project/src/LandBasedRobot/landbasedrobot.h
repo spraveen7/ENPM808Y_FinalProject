@@ -33,75 +33,201 @@ namespace fp {
     protected:
         //--attributes
         std::string name_;      //--Name of the robot
-        double speed_;      //--Driving speed of the robot
-        double width_;      //--Width of the base of the robot
-        double length_;     //--Length of the base of the robot
-        double height_;     //--Height of the base of the robot
-        double capacity_;      //--Payload of the arm
-        int x_;     //--X coordinate of the robot in the maze
-        int y_;     //--Y coordinate of the robot in the maze
+        double speed_;          //--Driving speed of the robot
+        double width_;          //--Width of the base of the robot
+        double length_;         //--Length of the base of the robot
+        double height_;         //--Height of the base of the robot
+        double capacity_;       //--Payload of the arm
+        int x_;                 //--X coordinate of the robot in the maze
+        int y_;                 //--Y coordinate of the robot in the maze
         char direction_;        //--Direction that the robot is facing in the maze
 
-    protected:
         //--methods prototypes
 
         /**
          * @brief it is a pure virtual method that gets the direction of the robot in the maze
          * @param string
-         * @return Returns none
+         * @return Returns direction_
          */
         virtual char GetDirection(std::string) = 0 ;       //--Get the direction of the robot in the maze
 
         /**
          * @brief it is a pure virtual method that moves the robot forward in the maze
-         * @param int x_
-         * @param int y_
+         * @param int x
+         * @param int y
          * @return Returns none
          */
         virtual void MoveForward(int x, int y) = 0;     //--Moves the robot forward
 
         /**
          * @brief it is a pure virtual method that rotates the robot 90°counter-clockwise in the maze
-         * @param int x_
-         * @param int y_
+         * @param int x
+         * @param int y
          * @return Returns none
          */
         virtual void TurnLeft(int x, int y) = 0;       //--Rotates the robot 90°counter-clockwise
 
         /**
          * @brief it is a pure virtual method that rotates the robot 90°clockwise in the maze
-         * @param int x_
-         * @param int y_
+         * @param int x
+         * @param int y
          * @return Returns none
          */
         virtual void TurnRight(int x, int y) = 0;      //--Rotates the robot 90°clockwise
 
-    protected:
-        //--constructor
+    public:
+        //--mutators
         /**
-         * @brief it is a constructor of the class LandBasedRobot
-         * @param string name_
-         * @param double speed_
-         * @param double width_
-         * @param double length_
-         * @param double height_
-         * @param double capacity_
-         * @param int x_
-         * @param int y_
-         * @param char direction_
+         * @brief it is a setter method for the Robot Name
+         * @param string name
          * @return Returns none
          */
-        LandBasedRobot(std::string name, double speed, double width, double length, double height, double capacity, int x, int y, char direction){
-            this->name_ =  name;
-            this->speed_ = speed;
-            this->width_ = width;
-            this->length_ = length;
-            this->height_ = height;
-            this->capacity_ = capacity;
-            this->direction_ = direction;
-            this->x_ = x;
-            this->y_ = y;
-        }
+        virtual void setName(std::string name);
+
+        /**
+         * @brief it is a setter method for the Robot speed
+         * @param double speed
+         * @return Returns none
+         */
+        virtual void setSpeed(double speed);
+
+        /**
+         * @brief it is a setter method for the robot width
+         * @param double width
+         * @return Returns none
+         */
+        virtual void setWidth(double width);
+
+        /**
+         * @brief it is a setter method for the robot length
+         * @param double length
+         * @return Returns none
+         */
+        virtual void setLength(double length);
+
+        /**
+         * @brief it is a setter method for the robot height
+         * @param double height
+         * @return Returns none
+         */
+        virtual void setHeight(double height);
+
+        /**
+         * @brief it is a setter method for the robot Payload capacity
+         * @param double capacity
+         * @return Returns none
+         */
+        virtual void setCapacity(double capacity);
+
+        /**
+         * @brief it is a setter method for the x-axis
+         * @param int x
+         * @return Returns none
+         */
+        virtual void set_x_(int x);
+
+        /**
+         * @brief it is a setter method for the y-axis
+         * @param int y
+         * @return Returns none
+         */
+        virtual void set_y_(int y);
+
+        /**
+         * @brief it is a setter method for the direction
+         * @param int direction
+         * @return Returns none
+         */
+        virtual void set_direction_(char direction);
+
+        //--accessors
+
+        /**
+         * @brief it is a getter method for the Name of the robot
+         * @param None
+         * @return Returns string
+         */
+        virtual const std::string &getName() const;
+
+        /**
+         * @brief it is a getter method for the robot speed
+         * @param None
+         * @return Returns double
+         */
+        virtual double getSpeed() const;
+
+        /**
+         * @brief it is a getter method for the robot width
+         * @param None
+         * @return Returns double
+         */
+        virtual double getWidth() const;
+
+        /**
+         * @brief it is a getter method for the robot length
+         * @param None
+         * @return Returns double
+         */
+        virtual double getLength() const ;
+
+        /**
+         * @brief it is a getter method for the robot height
+         * @param None
+         * @return Returns double
+         */
+        virtual double getHeight() const;
+
+        /**
+         * @brief it is a getter method for the Pay load capacity
+         * @param none
+         * @return Returns double
+         */
+        virtual double getCapacity() const;
+
+        /**
+         * @brief it is a getter method for the x-axis
+         * @param none
+         * @return Returns int x_
+         */
+        virtual int get_x_() const;
+
+        /**
+         * @brief it is a getter method for the y-axis
+         * @param none
+         * @return Returns int y_
+         */
+        virtual int get_y_() const;
+
+        /**
+         * @brief it is a getter method for direction
+         * @param none
+         * @return Returns int direction_
+         */
+        virtual int get_direction_() const;
+
+    protected:
+        //--constructor
+
+        /**
+         * @brief default constructor of the class LandBasedRobot
+         */
+        LandBasedRobot(): name_{},speed_ {}, width_ {}, length_ {}, height_ {}, capacity_ {},  x_ {}, y_ {}, direction_{}{}
+
+        /**
+         * @brief it is a constructor of the class LandBasedRobot
+         * @param string name
+         * @param double speed
+         * @param double width
+         * @param double length
+         * @param double height
+         * @param double capacity
+         * @param int x
+         * @param int y
+         * @param char direction
+         * @return Returns none
+         */
+        LandBasedRobot(std::string &name, double speed, double width, double length, double height, double capacity, int x, int y, char direction):
+        name_ {name}, speed_ {speed}, width_ {width}, length_ {length}, height_ {height}, capacity_ {capacity},  x_ {x}, y_ {y}, direction_{direction}{}
 
         //--destructor
 
@@ -110,65 +236,9 @@ namespace fp {
          * @param none
          * @return Returns none
          */
-        ~LandBasedRobot(){}
+        ~LandBasedRobot()= default;
 
     public:
-        //--mutators
-
-        /**
-         * @brief it is a setter method for the x-axis
-         * @param int x
-         * @return Returns none
-         */
-        void set_x_(int x){
-            this->x_ = x;
-        }
-
-        /**
-         * @brief it is a setter method for the y-axis
-         * @param int y
-         * @return Returns none
-         */
-        void set_y_(int y){
-            this->y_ = y;
-        }
-
-        /**
-         * @brief it is a setter method for the direction
-         * @param int direction
-         * @return Returns none
-         */
-        void set_direction_(char direction){
-            this->direction_ = direction;
-        }
-
-        //--accessors
-        /**
-         * @brief it is a getter method for the x-axis
-         * @param none
-         * @return Returns int x_
-         */
-        int get_x_() const{
-            return this->x_;
-        }
-
-        /**
-         * @brief it is a getter method for the y-axis
-         * @param none
-         * @return Returns int y_
-         */
-        int get_y_() const{
-            return this->y_;
-        }
-
-        /**
-         * @brief it is a getter method for direction
-         * @param none
-         * @return Returns int y_
-         */
-        int get_direction_() const{
-            return this->direction_;
-        }
 
     };//--Class LandBasedRobot
 }//--namespace fp
