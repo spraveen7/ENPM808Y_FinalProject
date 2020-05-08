@@ -46,3 +46,14 @@ Update time and by: 30th April 3:29 AM Karan Sutradhar
 12. Making small changes in API and Main.cpp (done)
 13. Comments and checking whether following naming conventions
 14. Creating Doxy file and documentation properly
+
+Update on branch Sudharsan: 07 May 2:35AM 
+Create LandBasedRobot Class as per the Final Project requisite PDF
+
+Features:
+    -> Create LandBasedRobot Class
+    -> Create virtual methods
+    -> Create Constructors and Destructors
+    -> create Getters and Setters for all attributes
+    -> Add Comments to all the methods, accessors and mutators
+
