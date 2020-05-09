@@ -43,7 +43,7 @@ char fp::LandBasedTracked::GetDirection() {
  */
 void fp::LandBasedTracked::MoveForward(int x, int y) {
     std::cout << "LandBasedWheeled::MoveForward is called\n";
-//    fp::API::moveForward();
+    fp::API::moveForward();
 }
 
 
@@ -55,7 +55,7 @@ void fp::LandBasedTracked::MoveForward(int x, int y) {
  */
 void fp::LandBasedTracked::TurnLeft(int x, int y) {
     std::cout << "LandBasedTracked::TurnLeft is called\n";
-//    fp::API::turnLeft();
+    fp::API::turnLeft();
 }
 
 /**
@@ -66,7 +66,7 @@ void fp::LandBasedTracked::TurnLeft(int x, int y) {
  */
 void fp::LandBasedTracked::TurnRight(int x, int y) {
     std::cout << "LandBasedTracked::TurnRight is called\n";
-//    fp::API::turnRight();
+    fp::API::turnRight();
 }
 
 /**
