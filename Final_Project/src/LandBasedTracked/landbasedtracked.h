@@ -39,11 +39,55 @@
 namespace fp {
     class LandBasedTracked : public LandBasedRobot{
     protected:
-        //--attributes
+        //---> Attributes <---//
         std::shared_ptr<std::string> track_type_;       //--Type of track mounted on the robot
 
-    protected:
-        //--methods prototypes
+    public:
+        //---> Constructor 01: Default constructor <---//
+        /**
+         * @brief default constructor of the class LandBasedTracked
+         */
+        LandBasedTracked():LandBasedRobot(), track_type_{nullptr}{}
+
+        //---> Constructor 02: Constructor with 3 Arguments as input <---//
+        /**
+         * @brief it is a constructor of the class LandBasedRobot
+         * @param string name
+         * @param int x
+         * @param int y
+         * @return Returns none
+         */
+        LandBasedTracked(std::string &name, int x, int y):LandBasedRobot(name, x, y), track_type_{nullptr}{}
+
+        //---> Constructor 03: Constructor with all Arguments as input <---//
+        /**
+         * @brief it is a constructor of the class LandBasedTracked
+         * @param string name
+         * @param double speed
+         * @param double width
+         * @param double length
+         * @param double height
+         * @param double capacity
+         * @param int x
+         * @param int y
+         * @param char direction
+         * @param string track_type
+         * @return Returns none
+         */
+
+        LandBasedTracked(std::string name, double speed, double width, double length, double height, double capacity, int x, int y, char direction, std::shared_ptr<std::string> track_type):
+                LandBasedRobot(name, speed, width, length, height, capacity, x, y, direction), track_type_{std::move(track_type)}{ }
+
+        //---> Destructor <---//
+        /**
+         * @brief it is a destructor of the class LandBasedTracked and deletes the objects created
+         * @param none
+         * @return Returns none
+         */
+
+        ~LandBasedTracked()= default;
+
+        //---> Method prototypes <---//
         /**
          * @brief it is a pure virtual method that gets the direction of the robot in the maze
          * @param string
@@ -89,49 +133,6 @@ namespace fp {
         */
         void Release() override;              //--Releases the payload
 
-
-
-
-    public:
-        //--constructor
-        LandBasedTracked():LandBasedRobot(), track_type_{nullptr}{}
-
-        /**
-         * @brief it is a constructor of the class LandBasedRobot
-         * @param string name
-         * @param int x
-         * @param int y
-         * @return Returns none
-         */
-        LandBasedTracked(std::string &name, int x, int y):LandBasedRobot(name, x, y), track_type_{nullptr}{}
-
-
-        /**
-         * @brief it is a constructor of the class LandBasedTracked
-         * @param string name
-         * @param double speed
-         * @param double width
-         * @param double length
-         * @param double height
-         * @param double capacity
-         * @param int x
-         * @param int y
-         * @param char direction
-         * @param string track_type
-         * @return Returns none
-         */
-
-        LandBasedTracked(std::string name, double speed, double width, double length, double height, double capacity, int x, int y, char direction, std::shared_ptr<std::string> track_type):
-        LandBasedRobot(name, speed, width, length, height, capacity, x, y, direction), track_type_{std::move(track_type)}{ }
-
-        //--destructor
-        /**
-         * @brief it is a destructor of the class LandBasedTracked and deletes the objects created
-         * @param none
-         * @return Returns none
-         */
-
-        ~LandBasedTracked()= default;
 
     };//--Class LandBasedTracked
 }//--namespace fp
