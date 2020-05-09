@@ -31,7 +31,7 @@ namespace fp {
     class LandBasedRobot {
 
     protected:
-        //--attributes
+        //---> Attributes <---//
         std::string name_;      //--Name of the robot
         double speed_;          //--Driving speed of the robot
         double width_;          //--Width of the base of the robot
@@ -43,14 +43,56 @@ namespace fp {
         char direction_;        //--Direction that the robot is facing in the maze
 
     public:
-        //--methods prototypes
+        //---> Constructor 01: Default Constructor <---//
+        /**
+         * @brief default constructor of the class LandBasedRobot
+         */
+        LandBasedRobot(): name_{},speed_ {}, width_ {}, length_ {}, height_ {}, capacity_ {},  x_ {}, y_ {}, direction_{}{}
 
+        //---> Constructor 02: Constructor with 3 Arguments as input <---//
+        /**
+         * @brief it is a constructor of the class LandBasedRobot
+         * @param string name
+         * @param int x
+         * @param int y
+         * @return Returns none
+         */
+        LandBasedRobot(std::string &name, int x, int y):
+                name_ {name}, speed_ {}, width_ {}, length_ {}, height_ {}, capacity_ {},  x_ {x}, y_ {y}, direction_{}{}
+
+        //---> Constructor 03: Constructor with all Arguments as input <---//
+        /**
+         * @brief it is a constructor of the class LandBasedRobot
+         * @param string name
+         * @param double speed
+         * @param double width
+         * @param double length
+         * @param double height
+         * @param double capacity
+         * @param int x
+         * @param int y
+         * @param char direction
+         * @return Returns none
+         */
+        LandBasedRobot(std::string &name, double speed, double width, double length, double height, double capacity, int x, int y, char direction):
+                name_ {name}, speed_ {speed}, width_ {width}, length_ {length}, height_ {height}, capacity_ {capacity},  x_ {x}, y_ {y}, direction_{direction}{}
+
+        //---> Destructors <---//
+        /**
+         * @brief it is a destructor of the class LandBasedRobot and deletes the objects created
+         * @param none
+         * @return Returns none
+         */
+        ~LandBasedRobot()= default;
+
+
+        //---> Method Prototypes <---//
         /**
          * @brief it is a pure virtual method that gets the direction of the robot in the maze
          * @param string
          * @return Returns direction_
          */
-        virtual char GetDirection() = 0 ;                //--Get the direction of the robot in the maze
+        virtual char GetDirection() = 0 ;                           //--Get the direction of the robot in the maze
 
         /**
          * @brief it is a pure virtual method that moves the robot forward in the maze
@@ -81,17 +123,16 @@ namespace fp {
         * @param none
         * @return Returns none
         */
-        virtual void PickUp() = 0;                //--picks up the payload
+        virtual void PickUp() = 0;                                  //--picks up the payload
 
         /**
         * @brief it is a pure virtual method that release the robot gripper
         * @param none
         * @return Returns none
         */
-        virtual void Release() = 0;              //--Releases the payload
+        virtual void Release() = 0;                                 //--Releases the payload
 
-    public:
-        //--mutators
+        //---> Mutators <---//
         /**
          * @brief it is a setter method for the Robot Name
          * @param string name
@@ -155,7 +196,7 @@ namespace fp {
          */
         virtual void set_direction_(char direction);
 
-        //--accessors
+        //---> Accessors <---//
 
         /**
          * @brief it is a getter method for the Name of the robot
@@ -220,51 +261,6 @@ namespace fp {
          */
         virtual int get_direction_() const;
 
-    protected:
-        //--constructor
-
-        /**
-         * @brief default constructor of the class LandBasedRobot
-         */
-        LandBasedRobot(): name_{},speed_ {}, width_ {}, length_ {}, height_ {}, capacity_ {},  x_ {}, y_ {}, direction_{}{}
-
-        /**
-         * @brief it is a constructor of the class LandBasedRobot
-         * @param string name
-         * @param int x
-         * @param int y
-         * @return Returns none
-         */
-        LandBasedRobot(std::string &name, int x, int y):
-        name_ {name}, speed_ {}, width_ {}, length_ {}, height_ {}, capacity_ {},  x_ {x}, y_ {y}, direction_{}{}
-
-
-        /**
-         * @brief it is a constructor of the class LandBasedRobot
-         * @param string name
-         * @param double speed
-         * @param double width
-         * @param double length
-         * @param double height
-         * @param double capacity
-         * @param int x
-         * @param int y
-         * @param char direction
-         * @return Returns none
-         */
-        LandBasedRobot(std::string &name, double speed, double width, double length, double height, double capacity, int x, int y, char direction):
-        name_ {name}, speed_ {speed}, width_ {width}, length_ {length}, height_ {height}, capacity_ {capacity},  x_ {x}, y_ {y}, direction_{direction}{}
-
-        //--destructor
-
-        /**
-         * @brief it is a destructor of the class landbasedrobot and deletes the objects created
-         * @param none
-         * @return Returns none
-         */
-        ~LandBasedRobot()= default;
-
-    public:
 
     };//--Class LandBasedRobot
 }//--namespace fp
