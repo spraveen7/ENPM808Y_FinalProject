@@ -50,7 +50,7 @@ namespace fp {
          * @param string
          * @return Returns direction_
          */
-        virtual char GetDirection(std::string) = 0 ;                //--Get the direction of the robot in the maze
+        virtual char GetDirection() = 0 ;                //--Get the direction of the robot in the maze
 
         /**
          * @brief it is a pure virtual method that moves the robot forward in the maze
@@ -78,17 +78,17 @@ namespace fp {
 
         /**
         * @brief it is a pure virtual method that picks up an object
-        * @param string pickup
+        * @param none
         * @return Returns none
         */
-        virtual void PickUp(std::string pickup) = 0;                //--picks up the payload
+        virtual void PickUp() = 0;                //--picks up the payload
 
         /**
         * @brief it is a pure virtual method that release the robot gripper
-        * @param string release
+        * @param none
         * @return Returns none
         */
-        virtual void Release(std::string release) = 0;              //--Releases the payload
+        virtual void Release() = 0;              //--Releases the payload
 
     public:
         //--mutators
