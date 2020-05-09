@@ -1,6 +1,3 @@
-//
-// Created by Sudo on 5/7/2020.
-//
 /**
 * @file landbasedtracked.h
 * @authors Group 4
@@ -29,9 +26,6 @@
 #ifndef FINAL_PROJECT_LANDBASEDWHEELED_H
 #define FINAL_PROJECT_LANDBASEDWHEELED_H
 
-#include <string>
-#include <iostream>
-#include <memory>
 #include "../LandBasedRobot/landbasedrobot.h"
 
 namespace fp {
@@ -119,6 +113,20 @@ namespace fp {
          * @return Returns none
          */
         void TurnRight(int x, int y) override;      //--Rotates the robot 90°clockwise
+
+        /**
+        * @brief it is a pure virtual method that picks up an object
+        * @param string
+        * @return Returns none
+        */
+        void PickUp(std::string string) override;                //--picks up the payload
+
+        /**
+        * @brief it is a pure virtual method that release the robot gripper
+        * @param string
+        * @return Returns none
+        */
+        void Release(std::string string) override;              //--Releases the payload
 
         //---> Accessors <---//
         /**

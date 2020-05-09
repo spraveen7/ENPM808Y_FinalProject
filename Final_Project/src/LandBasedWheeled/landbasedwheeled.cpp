@@ -1,6 +1,3 @@
-//
-// Created by Sudo on 5/7/2020.
-//
 /**
 * @file landbasedtracked.cpp
 * @authors Group 4
@@ -25,7 +22,6 @@
 */
 
 #include "landbasedwheeled.h"
-#include <iostream>
 #include "../API/api.h"
 
 //---> Method Definitions <---//
@@ -70,6 +66,24 @@ void fp::LandBasedWheeled::TurnLeft(int x, int y) {
 void fp::LandBasedWheeled::TurnRight(int x, int y) {
     std::cout << "LandBasedWheeled::TurnRight is called\n";
 //    fp::api::turnRight();
+}
+
+/**
+ * @brief it is the implementation of fp::LandBasedTracked::PickUp() method
+ * @param string
+ * @return Returns none
+ */
+void fp::LandBasedWheeled::PickUp(std::string string) {
+    std::cout << "LandBasedTracked::Pickup the payload is called\n"<<string<<std::endl;
+}
+
+/**
+ * @brief it is the implementation of fp::LandBasedTracked::Release() method
+ * @param string
+ * @return Returns none
+ */
+void fp::LandBasedWheeled::Release(std::string string) {
+    std::cout << "LandBasedTracked::Release payload is called\n"<<string<<std::endl;
 }
 
 //---> Accessors <---//

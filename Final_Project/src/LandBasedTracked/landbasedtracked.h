@@ -1,7 +1,3 @@
-//
-// Created by Sudo on 5/7/2020.
-//
-
 /**
 * @file landbasedtracked.h
 * @authors Group 4
@@ -30,10 +26,7 @@
 #ifndef FINAL_PROJECT_LANDBASEDTRACKED_H
 #define FINAL_PROJECT_LANDBASEDTRACKED_H
 
-#include <string>
 #include<iostream>
-#include <memory>
-#include <utility>
 #include "../LandBasedRobot/landbasedrobot.h"
 
 namespace fp {
@@ -57,7 +50,8 @@ namespace fp {
          * @param int y
          * @return Returns none
          */
-        LandBasedTracked(std::string &name, int x, int y):LandBasedRobot(name, x, y), track_type_{nullptr}{}
+        LandBasedTracked(std::string name, int x, int y):
+                LandBasedRobot(name, x, y), track_type_{nullptr}{}
 
         //---> Constructor 03: Constructor with all Arguments as input <---//
         /**
@@ -124,14 +118,14 @@ namespace fp {
         * @param none
         * @return Returns none
         */
-        void PickUp() override;                //--picks up the payload
+        void PickUp(std::string string) override;                //--picks up the payload
 
         /**
         * @brief it is a pure virtual method that release the robot gripper
         * @param none
         * @return Returns none
         */
-        void Release() override;              //--Releases the payload
+        void Release(std::string string) override;              //--Releases the payload
 
 
     };//--Class LandBasedTracked

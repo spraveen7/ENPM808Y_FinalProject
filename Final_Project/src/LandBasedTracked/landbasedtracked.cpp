@@ -1,6 +1,3 @@
-//
-// Created by Sudo on 5/7/2020.
-//
 /**
 * @file landbasedtracked.cpp
 * @authors Group 4
@@ -73,14 +70,19 @@ void fp::LandBasedTracked::TurnRight(int x, int y) {
 }
 
 /**
- * @brief it is the implementation of fp::LandBasedTracked::PickUp() method to rotates the robot 90°clockwise in the maze
- * @param None
+ * @brief it is the implementation of fp::LandBasedTracked::PickUp() method
+ * @param string
  * @return Returns none
  */
-void fp::LandBasedTracked::PickUp() {
-    std::cout << "LandBasedTracked::Pickup the payload is called\n";
+void fp::LandBasedTracked::PickUp(std::string string) {
+    std::cout << "LandBasedTracked::Pickup the payload is called\n"<<string<<std::endl;
 }
 
-void fp::LandBasedTracked::Release() {
-    std::cout << "LandBasedTracked::Release payload is called\n";
+/**
+ * @brief it is the implementation of fp::LandBasedTracked::Release() method
+ * @param string
+ * @return Returns none
+ */
+void fp::LandBasedTracked::Release(std::string string) {
+    std::cout << "LandBasedTracked::Release payload is called\n"<<string<<std::endl;
 }

@@ -25,13 +25,45 @@
 *  through a maze to reach Goal from Start.
 */
 
-#include <iostream>
 #include "src/Algorithm/algorithm.h"
 #include "src/API/api.h"
 #include "src/LandBasedWheeled/landbasedwheeled.h"
 #include "src/LandBasedTracked/landbasedtracked.h"
 
+void FollowActionPath(const std::shared_ptr<fp::LandBasedRobot>& robot,
+                      const std::vector<std::string> &vec, const std::string& obj);
+//--Implementation
+void FollowActionPath(const std::shared_ptr<fp::LandBasedRobot>& robot,
+                      const std::vector<std::string> &vec, const std::string& obj){
+
+    int x{robot->get_x_()};                             //--should be 1 for wheeled and 2 for tracked
+    int y{robot->get_y_()};                             //--should be 4 for wheeled and 3 for tracked
+
+    for (const auto& s: vec){
+        if (s=="forward")
+            robot->MoveForward(x,y);
+        else if (s=="right")
+            robot->TurnRight(x,y);
+        else if (s=="left")
+            robot->TurnLeft(x,y);
+        else if (s=="pickup")
+            robot->PickUp(obj);
+        else if (s=="release")
+            robot->Release(obj);
+    }
+}
+
 int main(){
-    std::cout<<"Nothing to show yet"<<std::endl;
+    std::cout << "\n--------------------------------------------------------------------\n";
+    std::shared_ptr<fp::LandBasedRobot> wheeled = std::make_shared<fp::LandBasedWheeled>("Husky",1,4);
+    std::vector<std::string> action_path_wheeled {"forward","pickup","left","right","release"};
+    FollowActionPath(wheeled,action_path_wheeled,"book");
+    std::cout << "--------------------------------------------------------------------\n";
+
+    std::shared_ptr<fp::LandBasedRobot> tracked = std::make_shared<fp::LandBasedTracked>("LT2-F",2,3);
+    std::vector<std::string> action_path_tracked {"forward","pickup","left","right","release"};
+    FollowActionPath(tracked,action_path_tracked,"cube");
+    std::cout << "--------------------------------------------------------------------\n";
+    
     return 0;
 }

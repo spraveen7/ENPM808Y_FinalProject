@@ -24,6 +24,7 @@
 */
 
 #pragma once
+
 #include <string>
 #include<iostream>
 
@@ -123,14 +124,14 @@ namespace fp {
         * @param none
         * @return Returns none
         */
-        virtual void PickUp() = 0;                                  //--picks up the payload
+        virtual void PickUp(std::string string) = 0;                                  //--picks up the payload
 
         /**
         * @brief it is a pure virtual method that release the robot gripper
         * @param none
         * @return Returns none
         */
-        virtual void Release() = 0;                                 //--Releases the payload
+        virtual void Release(std::string string) = 0;                                 //--Releases the payload
 
         //---> Mutators <---//
         /**
