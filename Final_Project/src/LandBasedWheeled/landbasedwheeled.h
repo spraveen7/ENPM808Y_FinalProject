@@ -42,7 +42,16 @@ namespace fp {
          */
         LandBasedWheeled():LandBasedRobot(), wheel_number_{}, wheel_type_{nullptr}{}
 
-        //---> Constructor 02: Constructor with 3 arguments as inputs <---//
+        //---> Constructor 02: Constructor with 1 argument as input <---//
+        /**
+         * @brief it is a constructor of the class LandBasedWheeled
+         * @param string name
+         * @return Returns none
+         */
+        explicit LandBasedWheeled(std::string name):
+                LandBasedRobot( name), wheel_number_{}, wheel_type_{nullptr}{}
+
+        //---> Constructor 03: Constructor with 3 arguments as inputs <---//
         /**
          * @brief it is a constructor of the class LandBasedWheeled
          * @param string name
@@ -50,11 +59,10 @@ namespace fp {
          * @param int y
          * @return Returns none
          */
-
         LandBasedWheeled(std::string name, int x, int y):
                 LandBasedRobot( name, x, y), wheel_number_{}, wheel_type_{nullptr}{}
 
-        //---> Constructor 03: Constructor with all arguments inputs <---//
+        //---> Constructor 04: Constructor with all arguments inputs <---//
         /**
          * @brief it is a constructor of the class LandBasedWheeled
          * @param string name

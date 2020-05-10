@@ -42,7 +42,16 @@ namespace fp {
          */
         LandBasedTracked():LandBasedRobot(), track_type_{nullptr}{}
 
-        //---> Constructor 02: Constructor with 3 Arguments as input <---//
+        //---> Constructor 03: Constructor with 1 Argument as input <---//
+        /**
+         * @brief it is a constructor of the class LandBasedRobot
+         * @param string name
+         * @return Returns none
+         */
+        explicit LandBasedTracked(std::string name):
+                LandBasedRobot(name), track_type_{nullptr}{}
+
+        //---> Constructor 03: Constructor with 3 Arguments as input <---//
         /**
          * @brief it is a constructor of the class LandBasedRobot
          * @param string name
@@ -53,7 +62,7 @@ namespace fp {
         LandBasedTracked(std::string name, int x, int y):
                 LandBasedRobot(name, x, y), track_type_{nullptr}{}
 
-        //---> Constructor 03: Constructor with all Arguments as input <---//
+        //---> Constructor 04: Constructor with all Arguments as input <---//
         /**
          * @brief it is a constructor of the class LandBasedTracked
          * @param string name

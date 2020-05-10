@@ -48,9 +48,20 @@ namespace fp {
         /**
          * @brief default constructor of the class LandBasedRobot
          */
-        LandBasedRobot(): name_{},speed_ {}, width_ {}, length_ {}, height_ {}, capacity_ {},  x_ {}, y_ {}, direction_{}{}
+        LandBasedRobot(): name_{},speed_ {}, width_ {}, length_ {}, height_ {}, capacity_ {},  x_ {0}, y_ {0}, direction_{'N'}{}
 
-        //---> Constructor 02: Constructor with 3 Arguments as input <---//
+        //---> Constructor 02: Constructor with 1 Argument as input <---//
+        /**
+         * @brief it is a constructor of the class LandBasedRobot
+         * @param string name
+         * @param int x
+         * @param int y
+         * @return Returns none
+         */
+        explicit LandBasedRobot(std::string &name):
+                name_ {name}, speed_ {}, width_ {}, length_ {}, height_ {}, capacity_ {},  x_ {0}, y_ {0}, direction_{'N'}{}
+
+        //---> Constructor 03: Constructor with 3 Arguments as input <---//
         /**
          * @brief it is a constructor of the class LandBasedRobot
          * @param string name
@@ -59,9 +70,9 @@ namespace fp {
          * @return Returns none
          */
         LandBasedRobot(std::string &name, int x, int y):
-                name_ {name}, speed_ {}, width_ {}, length_ {}, height_ {}, capacity_ {},  x_ {x}, y_ {y}, direction_{}{}
+                name_ {name}, speed_ {}, width_ {}, length_ {}, height_ {}, capacity_ {},  x_ {x}, y_ {y}, direction_{'N'}{}
 
-        //---> Constructor 03: Constructor with all Arguments as input <---//
+        //---> Constructor 04: Constructor with all Arguments as input <---//
         /**
          * @brief it is a constructor of the class LandBasedRobot
          * @param string name
