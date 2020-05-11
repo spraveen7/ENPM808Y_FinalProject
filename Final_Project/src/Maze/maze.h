@@ -29,7 +29,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include "../API/API.h"
+#include "../API/api.h"
 
 namespace fp {
     class Maze {
@@ -41,6 +41,44 @@ namespace fp {
         std::array<std::array<bool, 16>, 16> East_;
         std::array<std::array<bool, 16>, 16> West_;
 
+        //---> Constructor 01: Default Constructor <---//
+        Maze():North_{}, South_{}, East_{}, West_{} {
+            for(auto y=0 ; y<16 ; ++y){
+                for(auto x=0 ; x<16 ; ++x){
+                    if(x==0) {
+                        this->West_[15-y][x]=true;
+                        API::setWall(x,y,'W');
+                    }
+                    else{
+                        this->West_[15-y][x]=false;
+                    }
+                    if(x==15){
+                        this->East_[15-y][x]=true;
+                        API::setWall(x,y,'E');
+                    }
+                    else{
+                        this->East_[15-y][x]=false;
+                    }
+                    if(y==0){
+                        this->South_[15-y][x]=true;
+                        API::setWall(x,y,'S');
+                    }
+                    else{
+                        this->South_[15-y][x]=false;
+                    }
+                    if(y==15){
+                        this->North_[15-y][x]=true;
+                        API::setWall(x,y,'N');
+                    }
+                    else{
+                        this->North_[15-y][x]=false;
+                    }
+                }
+            }
+        }
+        //---> Destructor <---//
+        ~Maze()= default;
+
         //---> method prototypes <---//
         /**
          * @brief It updates the 'n','s','e','w' 2d array.
@@ -48,7 +86,7 @@ namespace fp {
          * @param y
          * @param direction
          */
-        void ReadMaze(int x, int y, char direction);
+        void ReadMaze(std::array<int, 2> curr_node, char direction);
 
         /**
          * @brief Adds color to the tiles of the maze grid.
@@ -57,43 +95,7 @@ namespace fp {
          */
         void ColorPath(std::vector<int> &X, std::vector<int> &Y);
 
-        //---> Constructor 01: Default Constructor <---//
-        Maze():North_{}, South_{}, East_{}, West_{} {
-            for(auto i=0 ; i<16 ; i++){
-                for(auto j=0 ; j<16 ; j++){
-                    if(i==0) {
-                        Maze::West_[i][j]=true;
-                        API::setWall(i,j,'W');
-                    }
-                    else{
-                        Maze::West_[i][j]=false;
-                    }
-                    if(i==15){
-                        Maze::East_[i][j]=true;
-                        API::setWall(i,j,'E');
-                    }
-                    else{
-                        Maze::East_[i][j]=false;
-                    }
-                    if(j==0){
-                        Maze::South_[i][j]=true;
-                        API::setWall(i,j,'S');
-                    }
-                    else{
-                        Maze::South_[i][j]=false;
-                    }
-                    if(j==15){
-                        Maze::North_[i][j]=true;
-                        API::setWall(i,j,'N');
-                    }
-                    else{
-                        Maze::North_[i][j]=false;
-                    }
-                }
-            }
-        }
-        //---> Destructor <---//
-        ~Maze()= default;
+
     };//--class Maze
 }//--namespace fp
 

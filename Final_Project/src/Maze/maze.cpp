@@ -32,61 +32,63 @@
  * @param y
  * @param direction
  */
-void fp::Maze::ReadMaze(int x, int y, char direction) {
+ void fp::Maze::ReadMaze(std::array<int, 2> curr_node, char direction) {
+    int x{curr_node[0]},y{curr_node[1]};
+
     if(direction == 'N'){
         if(API::wallFront()){
-            API::setWall(x,y,'N');
-            fp::Maze::North_[x][y] = true;
+            API::setWall(x,15-y,'N');
+            this->North_[x][y] = true;
         }
         if(API::wallRight()){
-            API::setWall(x,y,'E');
-            fp::Maze::East_[x][y] = true;
+            API::setWall(x,15-y,'E');
+            this->East_[x][y] = true;
         }
         if(API::wallLeft()){
-            API::setWall(x,y,'W');
-            fp::Maze::West_[x][y] = true;
+            API::setWall(x,15-y,'W');
+            this->West_[x][y] = true;
         }
     }
     if(direction == 'E'){
         if(API::wallFront()){
-            API::setWall(x,y,'E');
-            fp::Maze::East_[x][y] = true;
+            API::setWall(x,15-y,'E');
+            this->East_[x][y] = true;
         }
         if(API::wallRight()){
-            API::setWall(x,y,'S');
-            fp::Maze::South_[x][y] = true;
+            API::setWall(x,15-y,'S');
+            this->South_[x][y] = true;
         }
         if(API::wallLeft()){
-            API::setWall(x,y,'N');
-            fp::Maze::North_[x][y] = true;
+            API::setWall(x,15-y,'N');
+            this->North_[x][y] = true;
         }
     }
     if(direction == 'W'){
         if(API::wallFront()){
-            API::setWall(x,y,'W');
-            fp::Maze::West_[x][y] = true;
+            API::setWall(x,15-y,'W');
+            this->West_[x][y] = true;
         }
         if(API::wallRight()){
-            API::setWall(x,y,'N');
-            fp::Maze::North_[x][y] = true;
+            API::setWall(x,15-y,'N');
+            this->North_[x][y] = true;
         }
         if(API::wallLeft()){
-            API::setWall(x,y,'S');
-            fp::Maze::South_[x][y] = true;
+            API::setWall(x,15-y,'S');
+            this->South_[x][y] = true;
         }
     }
     if(direction == 'S'){
         if(API::wallFront()){
-            API::setWall(x,y,'S');
-            fp::Maze::South_[x][y] = true;
+            API::setWall(x,15-y,'S');
+            this->South_[x][y] = true;
         }
         if(API::wallRight()){
-            API::setWall(x,y,'W');
-            fp::Maze::West_[x][y] = true;
+            API::setWall(x,15-y,'W');
+            this->West_[x][y] = true;
         }
         if(API::wallLeft()){
-            API::setWall(x,y,'E');
-            fp::Maze::East_[x][y] = true;
+            API::setWall(x,15-y,'E');
+            this->East_[x][y] = true;
         }
     }
 }
