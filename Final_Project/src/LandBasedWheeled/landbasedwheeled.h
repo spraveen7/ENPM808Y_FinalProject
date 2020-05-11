@@ -26,6 +26,7 @@
 #ifndef FINAL_PROJECT_LANDBASEDWHEELED_H
 #define FINAL_PROJECT_LANDBASEDWHEELED_H
 
+#include <memory>
 #include "../LandBasedRobot/landbasedrobot.h"
 
 namespace fp {

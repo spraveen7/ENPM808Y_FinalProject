@@ -27,6 +27,7 @@
 #define FINAL_PROJECT_LANDBASEDTRACKED_H
 
 #include<iostream>
+#include <memory>
 #include "../LandBasedRobot/landbasedrobot.h"
 
 namespace fp {
