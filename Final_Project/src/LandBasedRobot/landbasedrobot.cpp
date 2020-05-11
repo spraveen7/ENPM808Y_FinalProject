@@ -185,8 +185,8 @@ int fp::LandBasedRobot::get_y_() const {
 /**
  * @brief it is a getter method for direction
  * @param none
- * @return Returns int direction_
+ * @return Returns char direction_
  */
-int fp::LandBasedRobot::get_direction_() const {
+char fp::LandBasedRobot::get_direction_() const {
     return this->direction_;
 }

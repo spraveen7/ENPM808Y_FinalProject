@@ -48,7 +48,7 @@ namespace fp {
         /**
          * @brief default constructor of the class LandBasedRobot
          */
-        LandBasedRobot(): name_{},speed_ {}, width_ {}, length_ {}, height_ {}, capacity_ {},  x_ {0}, y_ {0}, direction_{'N'}{}
+        LandBasedRobot(): name_{},speed_ {}, width_ {}, length_ {}, height_ {}, capacity_ {},  x_ {15}, y_ {0}, direction_{'N'}{}
 
         //---> Constructor 02: Constructor with 1 Argument as input <---//
         /**
@@ -59,7 +59,7 @@ namespace fp {
          * @return Returns none
          */
         explicit LandBasedRobot(std::string &name):
-                name_ {name}, speed_ {}, width_ {}, length_ {}, height_ {}, capacity_ {},  x_ {0}, y_ {0}, direction_{'N'}{}
+                name_ {name}, speed_ {}, width_ {}, length_ {}, height_ {}, capacity_ {},  x_ {15}, y_ {0}, direction_{'N'}{}
 
         //---> Constructor 03: Constructor with 3 Arguments as input <---//
         /**
@@ -271,7 +271,7 @@ namespace fp {
          * @param none
          * @return Returns int direction_
          */
-        virtual int get_direction_() const;
+        virtual char get_direction_() const;
 
 
     };//--Class LandBasedRobot
