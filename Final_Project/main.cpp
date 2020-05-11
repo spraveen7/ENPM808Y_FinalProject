@@ -25,45 +25,74 @@
 *  through a maze to reach Goal from Start.
 */
 
+#include <memory>
 #include "src/Algorithm/algorithm.h"
 #include "src/API/api.h"
 #include "src/LandBasedWheeled/landbasedwheeled.h"
 #include "src/LandBasedTracked/landbasedtracked.h"
 
-void FollowActionPath(const std::shared_ptr<fp::LandBasedRobot>& robot,
-                      const std::vector<std::string> &vec, const std::string& obj);
-//--Implementation
-void FollowActionPath(const std::shared_ptr<fp::LandBasedRobot>& robot,
-                      const std::vector<std::string> &vec, const std::string& obj){
-
-    int x{robot->get_x_()};                             //--should be 1 for wheeled and 2 for tracked
-    int y{robot->get_y_()};                             //--should be 4 for wheeled and 3 for tracked
-
-    for (const auto& s: vec){
-        if (s=="forward")
-            robot->MoveForward(x,y);
-        else if (s=="right")
-            robot->TurnRight(x,y);
-        else if (s=="left")
-            robot->TurnLeft(x,y);
-        else if (s=="pickup")
-            robot->PickUp(obj);
-        else if (s=="release")
-            robot->Release(obj);
-    }
-}
 
 int main(){
+    std::array<int, 2> n{};
+    std::stack<std::array<int, 2>> path_stack_{};
     std::cout << "\n--------------------------------------------------------------------\n";
-    std::shared_ptr<fp::LandBasedRobot> wheeled = std::make_shared<fp::LandBasedWheeled>("Husky",1,4);
-    std::vector<std::string> action_path_wheeled {"forward","pickup","left","right","release"};
-    FollowActionPath(wheeled,action_path_wheeled,"book");
-    std::cout << "--------------------------------------------------------------------\n";
+    std::shared_ptr<fp::LandBasedRobot> wheeled = std::make_shared<fp::LandBasedWheeled>("Husky");
+    fp::Algorithm algorithm;
+    algorithm.Solve(wheeled);
+    path_stack_ = algorithm.BackTrack(algorithm.end_goal_,algorithm.node_master_);
+    std::cout << "\n----------------------------> The End <-----------------------------\n";
+    int i = 0;
+    while(!algorithm.path_stack_.empty()){
+        n = algorithm.path_stack_.top();
+        std::cout<<i<<": "<<n[0]<<","<<n[1]<<std::endl;
+        algorithm.path_stack_.pop();
+        i++;
+    }
 
-    std::shared_ptr<fp::LandBasedRobot> tracked = std::make_shared<fp::LandBasedTracked>("LT2-F",2,3);
-    std::vector<std::string> action_path_tracked {"forward","pickup","left","right","release"};
-    FollowActionPath(tracked,action_path_tracked,"cube");
-    std::cout << "--------------------------------------------------------------------\n";
-    
+
+//    bool v = {};
+//    algorithm.maze_info.East_[15][0] = true;
+//    v = algorithm.DFSAlgorithm({15,0},{8,7});
+//    algorithm.BackTrack({8,7}, algorithm.node_info);
+//
+//    int x = 1;
+//    std::array<int,2> n{};
+//    while(!algorithm.path_stack_.empty()){
+//        n = algorithm.path_stack_.top();
+//        std::cout<<""<<n[0]<<","<<n[1]<<std::endl;
+//        algorithm.path_stack_.pop();
+//    }
+//    std::cout<<"North"<<std::endl;
+//    for(auto x: algorithm.maze_info.North_){
+//        for(auto y: x){
+//            std::cout<<y<<"  ";
+//        }
+//        std::cout<<std::endl;
+//    }
+//
+//    std::cout<<"South"<<std::endl;
+//    for(auto x: algorithm.maze_info.South_){
+//        for(auto y: x){
+//            std::cout<<y<<"  ";
+//        }
+//        std::cout<<std::endl;
+//    }
+//    std::cout<<"West"<<std::endl;
+//    for(auto x: algorithm.maze_info.West_){
+//        for(auto y: x){
+//            std::cout<<y<<"  ";
+//        }
+//        std::cout<<std::endl;
+//    }
+//
+//    std::cout<<"East"<<std::endl;
+//    for(auto x: algorithm.maze_info.East_){
+//        for(auto y: x){
+//            std::cout<<y<<"  ";
+//        }
+//        std::cout<<std::endl;
+//    }
+
+
     return 0;
 }
