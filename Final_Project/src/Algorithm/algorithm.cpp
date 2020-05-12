@@ -68,7 +68,7 @@ bool fp::Algorithm::AddNeighbour(std::array<int, 2> cur_node, std::array<int, 2>
  */
 void fp::Algorithm::FindNeighbours(std::array<int, 2> cur_node) {
 
-    char robotDirection{this->robot_->get_direction_()};
+    char robotDirection{this->robot_->GetDirection()};
     bool N{this->maze_info.North_[cur_node[0]][cur_node[1]]},
     S{this->maze_info.South_[cur_node[0]][cur_node[1]]},
     E{this->maze_info.East_[cur_node[0]][cur_node[1]]},
@@ -171,7 +171,7 @@ void fp::Algorithm::Solve(const std::shared_ptr<fp::LandBasedRobot>& robot) {
     char curr_direction{};
     std::array<int,2> curr_node{};
     std::stack<std::array<int, 2>> local_path{};
-    curr_direction = robot->get_direction_();
+    curr_direction = robot->GetDirection();
     curr_node = {robot->get_x_(), robot->get_y_()};
     this->node_info[curr_node[0]][curr_node[1]].parent_node_ = curr_node;
 
@@ -194,7 +194,7 @@ void fp::Algorithm::Solve(const std::shared_ptr<fp::LandBasedRobot>& robot) {
         //---> Step 05: Navigate to next node <---//
         this->Navigate(local_path);
         //---> Step 06: Get robot current cell info <---//
-        curr_direction = robot->get_direction_();
+        curr_direction = robot->GetDirection();
         curr_node = {robot->get_x_(), robot->get_y_()};
         //---> Step 07: Check for goal <---//
         if (curr_node == this->goal1_ || curr_node == this->goal2_ ||
@@ -227,7 +227,7 @@ void fp::Algorithm::Navigate(std::stack<std::array<int, 2>>& local_path) {
     //---> Step 02: Compute the togo direction <---//
     x = node_next[0] - node_curr[0];
     y = node_next[1] - node_curr[1];
-    curr_direction = this->robot_->get_direction_();
+    curr_direction = this->robot_->GetDirection();
 
     if(x==-1 && y == 0) direction_togo = 'N';
     else if(x == 1 && y == 0) direction_togo = 'S';

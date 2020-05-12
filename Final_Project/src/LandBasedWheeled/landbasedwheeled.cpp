@@ -40,13 +40,16 @@ char fp::LandBasedWheeled::GetDirection() {
  * @param none
  * @return Returns none
  */
-void fp::LandBasedWheeled::MoveForward() {
+void fp::LandBasedWheeled::MoveForward(int x, int y, char direction) {
     std::cerr << "LandBasedWheeled::MoveForward is called\n";
     fp::API::moveForward();
+    this->set_x_(x);
+    this->set_y_(y);
+    this->set_direction_(direction);
 }
 
 /**
- * @brief it is the implementation of fp::LandBasedTracked::TurnLeft() method to rotates the robot 90°counter-clockwise in the maze
+ * @brief it is the implementation of fp::LandBasedWheeled::TurnLeft() method to rotates the robot 90°counter-clockwise in the maze
  * @param none
  * @return Returns none
  */
@@ -56,7 +59,7 @@ void fp::LandBasedWheeled::TurnLeft() {
 }
 
 /**
- * @brief it is the implementation of fp::LandBasedTracked::TurnRight() method to rotates the robot 90°clockwise in the maze
+ * @brief it is the implementation of fp::LandBasedWheeled::TurnRight() method to rotates the robot 90°clockwise in the maze
  * @param none
  * @return Returns none
  */
@@ -66,21 +69,21 @@ void fp::LandBasedWheeled::TurnRight() {
 }
 
 /**
- * @brief it is the implementation of fp::LandBasedTracked::PickUp() method
+ * @brief it is the implementation of fp::LandBasedWheeled::PickUp() method
  * @param string
  * @return Returns none
  */
 void fp::LandBasedWheeled::PickUp(std::string string) {
-    std::cerr << "LandBasedTracked::Pickup the payload is called\n"<<string<<std::endl;
+    std::cerr << "LandBasedWheeled::Pickup the payload is called\n"<<string<<std::endl;
 }
 
 /**
- * @brief it is the implementation of fp::LandBasedTracked::Release() method
+ * @brief it is the implementation of fp::LandBasedWheeled::Release() method
  * @param string
  * @return Returns none
  */
 void fp::LandBasedWheeled::Release(std::string string) {
-    std::cerr << "LandBasedTracked::Release payload is called\n"<<string<<std::endl;
+    std::cerr << "LandBasedWheeled::Release payload is called\n"<<string<<std::endl;
 }
 
 //---> Accessors <---//
