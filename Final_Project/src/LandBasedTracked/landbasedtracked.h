@@ -45,7 +45,7 @@ namespace fp {
 
         //---> Constructor 03: Constructor with 1 Argument as input <---//
         /**
-         * @brief it is a constructor of the class LandBasedRobot
+         * @brief it is a constructor of the class LandBasedTracked
          * @param string name
          * @return Returns none
          */
@@ -54,7 +54,7 @@ namespace fp {
 
         //---> Constructor 03: Constructor with 3 Arguments as input <---//
         /**
-         * @brief it is a constructor of the class LandBasedRobot
+         * @brief it is a constructor of the class LandBasedTracked
          * @param string name
          * @param int x
          * @param int y
@@ -104,7 +104,7 @@ namespace fp {
          * @param none
          * @return Returns none
          */
-        void MoveForward() override;     //--Moves the robot forward
+        void MoveForward(int x, int y, char direction) override;     //--Moves the robot forward
 
         /**
          * @brief it is a pure virtual method that rotates the robot 90°counter-clockwise in the maze

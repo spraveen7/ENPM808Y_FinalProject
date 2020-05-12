@@ -26,24 +26,27 @@
 #include "../API/api.h"
 
 /**
- * @brief it is the implementation of fp::LandBasedWheeled::GetDirection() method that gets the direction of the robot in the maze
+ * @brief it is the implementation of fp::LandBasedTracked::GetDirection() method that gets the direction of the robot in the maze
  * @param string
  * @return Returns none
  */
 char fp::LandBasedTracked::GetDirection() {
-    std::cerr << "LandBasedWheeled::GetDirection is called\n";
+    std::cerr << "LandBasedTracked::GetDirection is called\n";
     return this->direction_;
 }
 
 /**
- * @brief it is the implementation of fp::LandBasedWheeled::MoveForward() method to moves the robot forward in the maze
+ * @brief it is the implementation of fp::LandBasedTracked::MoveForward() method to moves the robot forward in the maze
  * @param int x
  * @param int y
  * @return Returns none
  */
-void fp::LandBasedTracked::MoveForward() {
-    std::cerr << "LandBasedWheeled::MoveForward is called\n";
+void fp::LandBasedTracked::MoveForward(int x, int y, char direction) {
+    std::cerr << "LandBasedTracked::MoveForward is called\n";
     fp::API::moveForward();
+    this->set_x_(x);
+    this->set_y_(y);
+    this->set_direction_(direction);
 }
 
 
