@@ -224,6 +224,7 @@ void fp::Algorithm::Solve(const std::shared_ptr<fp::LandBasedRobot>& robot) {
         //---> Step 07: Check for goal <---//
         if (curr_node == this->goal1_ || curr_node == this->goal2_ ||
             curr_node == this->goal3_ || curr_node == this->goal4_) {
+            SetDefaults();
             this->end_goal_ = curr_node;
             fp::API::setColor(curr_node[1],15-curr_node[0], 'r');
             return;

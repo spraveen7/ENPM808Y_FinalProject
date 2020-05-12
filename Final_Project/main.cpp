@@ -33,9 +33,7 @@
 
 
 int main(){
-    std::array<int, 2> n{};
-    std::stack<std::array<int, 2>> path_stack_{};
-    std::cerr << "\n--------------------------------------------------------------------\n";
+    std::cerr << "\n-----------------------------> Start <------------------------------\n";
     std::shared_ptr<fp::LandBasedRobot> wheeled = std::make_shared<fp::LandBasedWheeled>("Husky");
     fp::Algorithm algorithm;
     algorithm.Solve(wheeled);
