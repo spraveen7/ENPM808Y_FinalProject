@@ -111,7 +111,7 @@ namespace fp {
          * @param none
          * @return Returns none
          */
-        virtual void MoveForward() = 0;                 //--Moves the robot forward
+        virtual void MoveForward(int x, int y, char direction) = 0;                 //--Moves the robot forward
 
         /**
          * @brief it is a pure virtual method that rotates the robot 90°counter-clockwise in the maze

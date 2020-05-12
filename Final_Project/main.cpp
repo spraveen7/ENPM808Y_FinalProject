@@ -33,10 +33,16 @@
 
 
 int main(){
+//    std::cerr << "\n-----------------------------> Start <------------------------------\n";
+//    std::shared_ptr<fp::LandBasedRobot> wheeled = std::make_shared<fp::LandBasedWheeled>("Husky");
+//    fp::Algorithm algorithm;
+//    algorithm.Solve(wheeled);
+//    std::cerr << "\n----------------------------> The End <-----------------------------\n";
+
     std::cerr << "\n-----------------------------> Start <------------------------------\n";
-    std::shared_ptr<fp::LandBasedRobot> wheeled = std::make_shared<fp::LandBasedWheeled>("Husky");
-    fp::Algorithm algorithm;
-    algorithm.Solve(wheeled);
+    std::shared_ptr<fp::LandBasedRobot> tracked = std::make_shared<fp::LandBasedTracked>("Husky");
+    fp::Algorithm algorithm2;
+    algorithm2.Solve(tracked);
     std::cerr << "\n----------------------------> The End <-----------------------------\n";
 
 
