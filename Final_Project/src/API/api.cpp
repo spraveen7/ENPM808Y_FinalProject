@@ -6,7 +6,6 @@
 * Sudharsan Balasubramani (116298636)
 * Sai Bhamidipati (117023640)
 * Ashwin Prabhakaran (117030402)
-* Girish Ethirajan
 *
 * @version 1.0
 *

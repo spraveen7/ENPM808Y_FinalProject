@@ -6,39 +6,63 @@
 
 #IncludeRegexTransform: 
 
-/home/karan/CLionProjects/Final_Project/main.cpp
-
-/home/karan/CLionProjects/Final_Project/src/API/api.cpp
-api.h
-/home/karan/CLionProjects/Final_Project/src/API/api.h
-cstdlib
--
-iostream
--
-
 /home/karan/CLionProjects/Final_Project/src/API/api.h
 string
 -
 
 /home/karan/CLionProjects/Final_Project/src/DFSAlgorithm/dfsalgorithm.cpp
-
-/home/karan/CLionProjects/Final_Project/src/LandBasedRobot/landbasedrobot.cpp
-landbasedrobot.h
-/home/karan/CLionProjects/Final_Project/src/LandBasedRobot/landbasedrobot.h
-
-/home/karan/CLionProjects/Final_Project/src/LandBasedRobot/landbasedrobot.h
+dfsalgorithm.h
+/home/karan/CLionProjects/Final_Project/src/DFSAlgorithm/dfsalgorithm.h
+../MazeFiles/mazefile.h
+/home/karan/CLionProjects/Final_Project/src/MazeFiles/mazefile.h
+../API/api.h
+/home/karan/CLionProjects/Final_Project/src/API/api.h
+stack
+-
+array
+-
+vector
+-
 string
 -
 iostream
 -
+memory.h
+-
 
-/home/karan/CLionProjects/Final_Project/src/LandBasedTracked/landbasedtracked.cpp
+/home/karan/CLionProjects/Final_Project/src/DFSAlgorithm/dfsalgorithm.h
+string
+-
 iostream
 -
-landbasedtracked.h
+../LandBasedWheeled/landbasedwheeled.h
+/home/karan/CLionProjects/Final_Project/src/LandBasedWheeled/landbasedwheeled.h
+../LandBasedTracked/landbasedtracked.h
 /home/karan/CLionProjects/Final_Project/src/LandBasedTracked/landbasedtracked.h
 ../API/api.h
 /home/karan/CLionProjects/Final_Project/src/API/api.h
+array
+-
+../MazeFiles/mazefile.h
+/home/karan/CLionProjects/Final_Project/src/MazeFiles/mazefile.h
+vector
+-
+stack
+-
+utility
+-
+algorithm
+-
+map
+-
+memory
+-
+
+/home/karan/CLionProjects/Final_Project/src/LandBasedRobot/landbasedrobot.h
+string
+-
+iostream
+-
 
 /home/karan/CLionProjects/Final_Project/src/LandBasedTracked/landbasedtracked.h
 string
@@ -48,10 +72,6 @@ iostream
 ../LandBasedRobot/landbasedrobot.h
 /home/karan/CLionProjects/Final_Project/src/LandBasedRobot/landbasedrobot.h
 
-/home/karan/CLionProjects/Final_Project/src/LandBasedWheeled/landbasedwheeled.cpp
-landbasedwheeled.h
-/home/karan/CLionProjects/Final_Project/src/LandBasedWheeled/landbasedwheeled.h
-
 /home/karan/CLionProjects/Final_Project/src/LandBasedWheeled/landbasedwheeled.h
 string
 -
@@ -60,5 +80,15 @@ iostream
 ../LandBasedRobot/landbasedrobot.h
 /home/karan/CLionProjects/Final_Project/src/LandBasedRobot/landbasedrobot.h
 
-/home/karan/CLionProjects/Final_Project/src/MazeFiles/mazefile.cpp
+/home/karan/CLionProjects/Final_Project/src/MazeFiles/mazefile.h
+array
+-
+vector
+-
+string
+-
+iostream
+-
+../API/api.h
+/home/karan/CLionProjects/Final_Project/src/API/api.h
 

@@ -6,7 +6,6 @@
 * Sudharsan Balasubramani (116298636)
 * Sai Bhamidipati (117023640)
 * Ashwin Prabhakaran (117030402)
-* Girish Ethirajan
 *
 * @version 1.0
 *
@@ -46,7 +45,7 @@ namespace fp
          * @param y
          * @param direction
          */
-        void ReadMazeFile(int x,int y,char direction);
+        bool ReadMazeFile(int x,int y,char direction_);
 
         /**
          * @brief Adds color to the tiles of the maze grid.
@@ -55,48 +54,48 @@ namespace fp
          */
         void ColorPath(std::vector<int> &X, std::vector<int> &Y);
 
-        public:
-            //--Constructor
-            MazeFile() {
-                North_[16][16] = {};
-                South_[16][16] = {};
-                East_[16][16] = {};
-                West_[16][16] = {};
+    public:
+        //--Constructor
+        MazeFile() {
+            North_[16][16] = {};
+            South_[16][16] = {};
+            East_[16][16] = {};
+            West_[16][16] = {};
 
-                for(int i=0 ; i<16 ; i++){
-                    for(int j=0 ; j<16 ; j++){
-                        if(i==0) {
-                            fp::MazeFile::West_[i][j]=true;
-                            api::setWall(i,j,'w');
-                        }
-                        else{
-                            fp::MazeFile::West_[i][j]=false;
-                        }
-                        if(i==15){
-                            fp::MazeFile::East_[i][j]=true;
-                            api::setWall(i,j,'e');
-                        }
-                        else{
-                            fp::MazeFile::East_[i][j]=false;
-                        }
-                        if(j==0){
-                            fp::MazeFile::South_[i][j]=true;
-                            api::setWall(i,j,'s');
-                        }
-                        else{
-                            fp::MazeFile::South_[i][j]=false;
-                        }
-                        if(j==15){
-                            fp::MazeFile::North_[i][j]=true;
-                            api::setWall(i,j,'n');
-                        }
-                        else{
-                            fp::MazeFile::North_[i][j]=false;
-                        }
+            for(int i=0 ; i<16 ; i++){
+                for(int j=0 ; j<16 ; j++){
+                    if(i==0) {
+                        fp::MazeFile::West_[i][j]=true;
+                        api::setWall(i,j,'w');
+                    }
+                    else{
+                        fp::MazeFile::West_[i][j]=false;
+                    }
+                    if(i==15){
+                        fp::MazeFile::East_[i][j]=true;
+                        api::setWall(i,j,'e');
+                    }
+                    else{
+                        fp::MazeFile::East_[i][j]=false;
+                    }
+                    if(j==0){
+                        fp::MazeFile::South_[i][j]=true;
+                        api::setWall(i,j,'s');
+                    }
+                    else{
+                        fp::MazeFile::South_[i][j]=false;
+                    }
+                    if(j==15){
+                        fp::MazeFile::North_[i][j]=true;
+                        api::setWall(i,j,'n');
+                    }
+                    else{
+                        fp::MazeFile::North_[i][j]=false;
                     }
                 }
             }
-            ~MazeFile(){};
+        }
+        ~MazeFile(){};
     };
 
 }

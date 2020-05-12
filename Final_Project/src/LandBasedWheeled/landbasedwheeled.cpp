@@ -6,7 +6,6 @@
 * Sudharsan Balasubramani (116298636)
 * Sai Bhamidipati (117023640)
 * Ashwin Prabhakaran (117030402)
-* Girish Ethirajan
 *
 * @version 1.0
 *
@@ -32,18 +31,11 @@
  * @return Returns none
  */
 
-char fp::LandBasedWheeled::GetDirection(std::string) {
+char fp::LandBasedWheeled::GetDirection() {
     std::cout << "LandBasedWheeled::GetDirection is called\n";
     return direction_;
 }
 
-int fp::LandBasedWheeled::get_x_() const {
-    return x_;
-}
-
-int fp::LandBasedWheeled::get_y_() const {
-    return y_;
-}
 /**
  * @brief it is the implementation of fp::LandBasedWheeled::MoveForward() method to moves the robot forward in the maze
  * @param int x_
@@ -51,24 +43,24 @@ int fp::LandBasedWheeled::get_y_() const {
  * @return Returns none
  */
 
-void fp::LandBasedWheeled::MoveForward(int x_, int y_) {
+void fp::LandBasedWheeled::MoveForward() {
     std::cout << "LandBasedWheeled::MoveForward is called\n";
-    if (fp::LandBasedWheeled::GetDirection(std::string) == 'N')
+    if (fp::LandBasedWheeled::GetDirection() == 'N')
     {
         x_ = x_;
         y_ = y_ + 1;
     }
-    if (fp::LandBasedWheeled::GetDirection(std::string) == 'E')
+    if (fp::LandBasedWheeled::GetDirection() == 'E')
     {
         x_ = x_ + 1;
         y_ = y_ ;
     }
-    if (fp::LandBasedWheeled::GetDirection(std::string) == 'W')
+    if (fp::LandBasedWheeled::GetDirection() == 'W')
     {
         x_ = x_ - 1;
         y_ = y_;
     }
-    if (fp::LandBasedWheeled::GetDirection(std::string) == 'S')
+    if (fp::LandBasedWheeled::GetDirection() == 'S')
     {
         x_ = x_;
         y_ = y_ - 1;
@@ -82,19 +74,19 @@ void fp::LandBasedWheeled::MoveForward(int x_, int y_) {
  * @return Returns none
  */
 
-void fp::LandBasedWheeled::TurnLeft(int x_, int y_) {
+void fp::LandBasedWheeled::TurnLeft() {
     std::cout << "LandBasedWheeled::TurnLeft is called\n";
     {
-        if(fp::LandBasedWheeled::GetDirection(std::string) == 'N')
+        if(fp::LandBasedWheeled::GetDirection() == 'N')
             direction_ = 'W';
 
-        if(fp::LandBasedWheeled::GetDirection(std::string) == 'E')
+        if(fp::LandBasedWheeled::GetDirection() == 'E')
             direction_ = 'N';
 
-        if(fp::LandBasedWheeled::GetDirection(std::string) == 'W')
+        if(fp::LandBasedWheeled::GetDirection() == 'W')
             direction_ = 'S';
 
-        if(fp::LandBasedWheeled::GetDirection(std::string) == 'S')
+        if(fp::LandBasedWheeled::GetDirection() == 'S')
             direction_ = 'E';
 
         fp::api::turnLeft();
@@ -108,19 +100,19 @@ void fp::LandBasedWheeled::TurnLeft(int x_, int y_) {
  * @return Returns none
  */
 
-void fp::LandBasedWheeled::TurnRight(int x_, int y_) {
+void fp::LandBasedWheeled::TurnRight() {
     std::cout << "LandBasedWheeled::TurnRight is called\n";
     {
-        if(fp::LandBasedWheeled::GetDirection(std::string) == 'N')
+        if(fp::LandBasedWheeled::GetDirection() == 'N')
             direction_ = 'E';
 
-        if(fp::LandBasedWheeled::GetDirection(std::string) == 'E')
+        if(fp::LandBasedWheeled::GetDirection() == 'E')
             direction_ = 'S';
 
-        if(fp::LandBasedWheeled::GetDirection(std::string) == 'W')
+        if(fp::LandBasedWheeled::GetDirection() == 'W')
             direction_ = 'N';
 
-        if(fp::LandBasedWheeled::GetDirection(std::string) == 'S')
+        if(fp::LandBasedWheeled::GetDirection() == 'S')
             direction_ = 'W';
 
         fp::api::turnRight();

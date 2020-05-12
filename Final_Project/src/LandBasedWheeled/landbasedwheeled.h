@@ -6,7 +6,6 @@
 * Sudharsan Balasubramani (116298636)
 * Sai Bhamidipati (117023640)
 * Ashwin Prabhakaran (117030402)
-* Girish Ethirajan
 *
 * @version 1.0
 *
@@ -42,7 +41,7 @@ namespace fp {
          * @param string
          * @return Returns none
          */
-        virtual char GetDirection(std::string) override;       //--Get the direction of the robot in the maze
+        virtual char GetDirection() override;       //--Get the direction of the robot in the maze
 
         /**
          * @brief it is a pure virtual method that moves the robot forward in the maze
@@ -50,7 +49,7 @@ namespace fp {
          * @param int y_
          * @return Returns none
          */
-        virtual void MoveForward(int x_, int y_) override;     //--Moves the robot forward
+        virtual void MoveForward() override;     //--Moves the robot forward
 
         /**
          * @brief it is a pure virtual method that rotates the robot 90°counter-clockwise in the maze
@@ -58,7 +57,7 @@ namespace fp {
          * @param int y_
          * @return Returns none
          */
-        virtual void TurnLeft(int x_, int y_) override;       //--Rotates the robot 90°counter-clockwise
+        virtual void TurnLeft() override;       //--Rotates the robot 90°counter-clockwise
 
         /**
          * @brief it is a pure virtual method that rotates the robot 90°clockwise in the maze
@@ -66,7 +65,7 @@ namespace fp {
          * @param int y_
          * @return Returns none
          */
-        virtual void TurnRight(int x_, int y_) override;      //--Rotates the robot 90°clockwise
+        virtual void TurnRight() override;      //--Rotates the robot 90°clockwise
 
     public:
         //--constructor

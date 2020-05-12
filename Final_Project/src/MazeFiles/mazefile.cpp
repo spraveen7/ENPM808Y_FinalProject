@@ -1,3 +1,5 @@
+
+
 /**
 * @file MazeFile.cpp
 * @authors Group 4
@@ -6,7 +8,6 @@
 * Sudharsan Balasubramani (116298636)
 * Sai Bhamidipati (117023640)
 * Ashwin Prabhakaran (117030402)
-* Girish Ethirajan
 *
 * @version 1.0
 *
@@ -33,9 +34,9 @@
 
 
 
-void fp::MazeFile::ReadMazeFile(int x,int y,char direction){
+bool fp::MazeFile::ReadMazeFile(int x,int y,char direction_){
 
-    direction_ = direction;
+    direction_ = direction_;
     if(direction_ == 'n'){
         if(api::wallFront()==true){
             api::setWall(x,y,'n');
@@ -99,5 +100,3 @@ void fp::MazeFile::ColorPath(std::vector<int> &X, std::vector<int> &Y){
         api::setColor(X[i],Y[i],'b'); //Sets color to the path x,y as blue by calling the API function.
 
 }
-
-

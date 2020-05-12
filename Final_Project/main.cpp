@@ -6,6 +6,7 @@
 * Sudharsan Balasubramani (116298636)
 * Sai Bhamidipati (117023640)
 * Ashwin Prabhakaran (117030402)
+* Girish Ethirajan
 *
 * @version 1.0
 *
@@ -36,7 +37,7 @@
 
 int main(){
     std::shared_ptr<fp::LandBasedRobot> wheeled = std::make_shared<fp::LandBasedWheeled>(1, "Husky", 0, 5, 5, 5, 0, 0, 0, 'N');
-    fp::dfsalgorithm algo;
+    fp::DFSAlgorithm algo;
     algo.Solve(wheeled);
     std::cout << "Goal Reached" << std::endl;
     return 0;
