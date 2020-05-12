@@ -47,28 +47,28 @@ namespace fp {
                 for(auto x=0 ; x<16 ; ++x){
                     if(x==0) {
                         this->West_[15-y][x]=true;
-                        API::setWall(x,y,'W');
+                        API::setWall(x,y,'w');
                     }
                     else{
                         this->West_[15-y][x]=false;
                     }
                     if(x==15){
                         this->East_[15-y][x]=true;
-                        API::setWall(x,y,'E');
+                        API::setWall(x,y,'e');
                     }
                     else{
                         this->East_[15-y][x]=false;
                     }
                     if(y==0){
                         this->South_[15-y][x]=true;
-                        API::setWall(x,y,'S');
+                        API::setWall(x,y,'s');
                     }
                     else{
                         this->South_[15-y][x]=false;
                     }
                     if(y==15){
                         this->North_[15-y][x]=true;
-                        API::setWall(x,y,'N');
+                        API::setWall(x,y,'n');
                     }
                     else{
                         this->North_[15-y][x]=false;
@@ -93,7 +93,7 @@ namespace fp {
          * @param &X
          * @param &Y
          */
-        void ColorPath(std::vector<int> &X, std::vector<int> &Y);
+        static void ColorPath(std::array<int,2>);
 
 
     };//--class Maze

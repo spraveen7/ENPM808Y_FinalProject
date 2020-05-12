@@ -35,63 +35,11 @@
 int main(){
     std::array<int, 2> n{};
     std::stack<std::array<int, 2>> path_stack_{};
-    std::cout << "\n--------------------------------------------------------------------\n";
+    std::cerr << "\n--------------------------------------------------------------------\n";
     std::shared_ptr<fp::LandBasedRobot> wheeled = std::make_shared<fp::LandBasedWheeled>("Husky");
     fp::Algorithm algorithm;
     algorithm.Solve(wheeled);
-    path_stack_ = algorithm.BackTrack(algorithm.end_goal_,algorithm.node_master_);
-    std::cout << "\n----------------------------> The End <-----------------------------\n";
-    int i = 0;
-    while(!algorithm.path_stack_.empty()){
-        n = algorithm.path_stack_.top();
-        std::cout<<i<<": "<<n[0]<<","<<n[1]<<std::endl;
-        algorithm.path_stack_.pop();
-        i++;
-    }
-
-
-//    bool v = {};
-//    algorithm.maze_info.East_[15][0] = true;
-//    v = algorithm.DFSAlgorithm({15,0},{8,7});
-//    algorithm.BackTrack({8,7}, algorithm.node_info);
-//
-//    int x = 1;
-//    std::array<int,2> n{};
-//    while(!algorithm.path_stack_.empty()){
-//        n = algorithm.path_stack_.top();
-//        std::cout<<""<<n[0]<<","<<n[1]<<std::endl;
-//        algorithm.path_stack_.pop();
-//    }
-//    std::cout<<"North"<<std::endl;
-//    for(auto x: algorithm.maze_info.North_){
-//        for(auto y: x){
-//            std::cout<<y<<"  ";
-//        }
-//        std::cout<<std::endl;
-//    }
-//
-//    std::cout<<"South"<<std::endl;
-//    for(auto x: algorithm.maze_info.South_){
-//        for(auto y: x){
-//            std::cout<<y<<"  ";
-//        }
-//        std::cout<<std::endl;
-//    }
-//    std::cout<<"West"<<std::endl;
-//    for(auto x: algorithm.maze_info.West_){
-//        for(auto y: x){
-//            std::cout<<y<<"  ";
-//        }
-//        std::cout<<std::endl;
-//    }
-//
-//    std::cout<<"East"<<std::endl;
-//    for(auto x: algorithm.maze_info.East_){
-//        for(auto y: x){
-//            std::cout<<y<<"  ";
-//        }
-//        std::cout<<std::endl;
-//    }
+    std::cerr << "\n----------------------------> The End <-----------------------------\n";
 
 
     return 0;

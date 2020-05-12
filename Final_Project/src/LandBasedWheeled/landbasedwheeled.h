@@ -101,27 +101,24 @@ namespace fp {
 
         /**
          * @brief it is a pure virtual method that moves the robot forward in the maze
-         * @param int x
-         * @param int y
+         * @param none
          * @return Returns none
          */
-        void MoveForward(int x, int y) override;     //--Moves the robot forward
+        void MoveForward() override;     //--Moves the robot forward
 
         /**
          * @brief it is a pure virtual method that rotates the robot 90°counter-clockwise in the maze
-         * @param int x
-         * @param int y
+         * @param none
          * @return Returns none
          */
-        void TurnLeft(int x, int y) override;       //--Rotates the robot 90°counter-clockwise
+        void TurnLeft() override;       //--Rotates the robot 90°counter-clockwise
 
         /**
          * @brief it is a pure virtual method that rotates the robot 90°clockwise in the maze
-         * @param int x
-         * @param int y
+         * @param none
          * @return Returns none
          */
-        void TurnRight(int x, int y) override;      //--Rotates the robot 90°clockwise
+        void TurnRight() override;      //--Rotates the robot 90°clockwise
 
         /**
         * @brief it is a pure virtual method that picks up an object

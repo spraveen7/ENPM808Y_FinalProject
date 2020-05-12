@@ -31,7 +31,7 @@
  * @return Returns none
  */
 char fp::LandBasedTracked::GetDirection() {
-    std::cout << "LandBasedWheeled::GetDirection is called\n";
+    std::cerr << "LandBasedWheeled::GetDirection is called\n";
     return this->direction_;
 }
 
@@ -41,8 +41,8 @@ char fp::LandBasedTracked::GetDirection() {
  * @param int y
  * @return Returns none
  */
-void fp::LandBasedTracked::MoveForward(int x, int y) {
-    std::cout << "LandBasedWheeled::MoveForward is called\n";
+void fp::LandBasedTracked::MoveForward() {
+    std::cerr << "LandBasedWheeled::MoveForward is called\n";
     fp::API::moveForward();
 }
 
@@ -53,8 +53,8 @@ void fp::LandBasedTracked::MoveForward(int x, int y) {
  * @param int y
  * @return Returns none
  */
-void fp::LandBasedTracked::TurnLeft(int x, int y) {
-    std::cout << "LandBasedTracked::TurnLeft is called\n";
+void fp::LandBasedTracked::TurnLeft() {
+    std::cerr << "LandBasedTracked::TurnLeft is called\n";
     fp::API::turnLeft();
 }
 
@@ -64,8 +64,8 @@ void fp::LandBasedTracked::TurnLeft(int x, int y) {
  * @param int y
  * @return Returns none
  */
-void fp::LandBasedTracked::TurnRight(int x, int y) {
-    std::cout << "LandBasedTracked::TurnRight is called\n";
+void fp::LandBasedTracked::TurnRight() {
+    std::cerr << "LandBasedTracked::TurnRight is called\n";
     fp::API::turnRight();
 }
 
@@ -75,7 +75,7 @@ void fp::LandBasedTracked::TurnRight(int x, int y) {
  * @return Returns none
  */
 void fp::LandBasedTracked::PickUp(std::string string) {
-    std::cout << "LandBasedTracked::Pickup the payload is called\n"<<string<<std::endl;
+    std::cerr << "LandBasedTracked::Pickup the payload is called\n"<<string<<std::endl;
 }
 
 /**
@@ -84,5 +84,5 @@ void fp::LandBasedTracked::PickUp(std::string string) {
  * @return Returns none
  */
 void fp::LandBasedTracked::Release(std::string string) {
-    std::cout << "LandBasedTracked::Release payload is called\n"<<string<<std::endl;
+    std::cerr << "LandBasedTracked::Release payload is called\n"<<string<<std::endl;
 }

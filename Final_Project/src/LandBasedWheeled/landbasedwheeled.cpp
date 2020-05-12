@@ -31,40 +31,37 @@
  * @return Returns none
  */
 char fp::LandBasedWheeled::GetDirection() {
-    std::cout << "LandBasedWheeled::GetDirection is called\n";
+    std::cerr << "LandBasedWheeled::GetDirection is called\n";
     return this->direction_;
 }
 
 /**
  * @brief it is the implementation of fp::LandBasedWheeled::MoveForward() method to moves the robot forward in the maze
- * @param int x
- * @param int y
+ * @param none
  * @return Returns none
  */
-void fp::LandBasedWheeled::MoveForward(int x, int y) {
-    std::cout << "LandBasedWheeled::MoveForward is called\n";
+void fp::LandBasedWheeled::MoveForward() {
+    std::cerr << "LandBasedWheeled::MoveForward is called\n";
     fp::API::moveForward();
 }
 
 /**
  * @brief it is the implementation of fp::LandBasedTracked::TurnLeft() method to rotates the robot 90°counter-clockwise in the maze
- * @param int x
- * @param int y
+ * @param none
  * @return Returns none
  */
-void fp::LandBasedWheeled::TurnLeft(int x, int y) {
-    std::cout << "LandBasedWheeled::TurnLeft is called\n";
+void fp::LandBasedWheeled::TurnLeft() {
+    std::cerr << "LandBasedWheeled::TurnLeft is called\n";
     fp::API::turnLeft();
 }
 
 /**
  * @brief it is the implementation of fp::LandBasedTracked::TurnRight() method to rotates the robot 90°clockwise in the maze
- * @param int x
- * @param int y
+ * @param none
  * @return Returns none
  */
-void fp::LandBasedWheeled::TurnRight(int x, int y) {
-    std::cout << "LandBasedWheeled::TurnRight is called\n";
+void fp::LandBasedWheeled::TurnRight() {
+    std::cerr << "LandBasedWheeled::TurnRight is called\n";
     fp::API::turnRight();
 }
 
@@ -74,7 +71,7 @@ void fp::LandBasedWheeled::TurnRight(int x, int y) {
  * @return Returns none
  */
 void fp::LandBasedWheeled::PickUp(std::string string) {
-    std::cout << "LandBasedTracked::Pickup the payload is called\n"<<string<<std::endl;
+    std::cerr << "LandBasedTracked::Pickup the payload is called\n"<<string<<std::endl;
 }
 
 /**
@@ -83,7 +80,7 @@ void fp::LandBasedWheeled::PickUp(std::string string) {
  * @return Returns none
  */
 void fp::LandBasedWheeled::Release(std::string string) {
-    std::cout << "LandBasedTracked::Release payload is called\n"<<string<<std::endl;
+    std::cerr << "LandBasedTracked::Release payload is called\n"<<string<<std::endl;
 }
 
 //---> Accessors <---//

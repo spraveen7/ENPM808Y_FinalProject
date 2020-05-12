@@ -42,16 +42,14 @@
 namespace fp{
     struct Node {
         //---> Attributes <---//
-        int x_, y_, dist_;
-        char direction_;
+        int dist_;
         std::array<int, 2> parent_node_;
 
         //---> Constructor 01: Default constructor <---//
-        Node(): x_{},y_{}, dist_{}, direction_{}, parent_node_{}{}
+        Node(): dist_{}, parent_node_{}{}
 
         //---> Constructor 02: Constructor with 3 arguments as input <---//
-        Node(int x, int y) :
-        x_(x), y_(y), direction_{}, dist_{}, parent_node_{} {}
+        Node(int x, int y) :dist_{}, parent_node_{} {}
 
         //---> Destructors <---//
         ~Node()= default;
@@ -60,31 +58,35 @@ namespace fp{
     class Algorithm {
     public:
         bool path_found_;
+        bool temp_goal_{false}, path_blocked{true};
+
         fp::Maze maze_info;
         int height_, width_;
         char current_direction_;
-        std::array<int, 2> goal1_, goal2_, goal3_, goal4_, end_goal_;
         std::array<int, 2> previous_node_;
         std::array<int, 2> current_node_;
         std::stack<std::array <int,2> > stack_;
-        std::shared_ptr<fp::LandBasedRobot> robot;
+        std::shared_ptr<fp::LandBasedRobot> robot_;
         std::stack<std::array<int, 2>> path_stack_;
         std::array<std::array<Node, 16>, 16> node_info;
         std::array<std::array<Node, 16>, 16> node_master_;
         std::array<std::array<bool, 16>, 16> visited_node_;
         std::array<std::array<bool, 16>, 16> explored_node_;
+        std::array<int, 2> goal1_, goal2_, goal3_, goal4_, end_goal_;
 
 
     public:
         //---> Constructor 01: Default Constructor <---//
         Algorithm(): path_found_{false}, height_{16}, width_{16}, current_direction_{'N'}, goal1_{8,7},
-                     goal2_{8,8}, goal3_{7,8}, goal4_{7,7}, end_goal_{},previous_node_{}, current_node_{}, stack_{},
-                     path_stack_{}, node_master_{}, visited_node_{}, explored_node_{} {
+                     goal2_{8,8}, goal3_{7,8}, goal4_{7,7},
+                     end_goal_{},previous_node_{}, current_node_{}, stack_{}, path_stack_{}, node_master_{}, visited_node_{}, explored_node_{}, robot_{nullptr} {
             for(int i = 0; i < height_ ; ++i)
                 for (int j = 0; j < width_ ; ++j) {
                     this->node_master_[i][j] = fp::Node{i, j};
                     this->visited_node_[i][j] = false;
                 }
+
+
         }
         //---> Destructor <---//
         ~Algorithm()= default;
@@ -104,6 +106,8 @@ namespace fp{
          */
         bool IsExplored(std::array<int, 2> cur_node);
 
+
+        bool AddNeighbour(std::array<int, 2> cur_node, std::array<int, 2> neighbour);
         /**
          * @brief finds the neighbouring nodes of a given input node and add the found neighbours to the stack
          * @param std::array<int, 2> cur_node
@@ -146,6 +150,13 @@ namespace fp{
          * @return none
          */
         void ClearStack();
+
+        /**
+         * @brief set Default Values
+         * @param none
+         * @return none
+         */
+        void SetDefaults();
     };
 }
 

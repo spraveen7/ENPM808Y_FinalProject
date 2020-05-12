@@ -27,67 +27,79 @@
 #include "../API/api.h"
 
 /**
- * @brief It updates the 'N','S','E','W' 2d array.
+ * @brief It updates the 'n','s','e','w' 2d array.
  * @param x
  * @param y
  * @param direction
  */
  void fp::Maze::ReadMaze(std::array<int, 2> curr_node, char direction) {
     int x{curr_node[0]},y{curr_node[1]};
-
+    //std::cerr<<"\nRead Maze: "<<std::endl;
     if(direction == 'N'){
         if(API::wallFront()){
-            API::setWall(x,15-y,'N');
+            //std::cerr<<"\t-Wall in Front"<<std::endl;
+            API::setWall(y,15-x,'n');
             this->North_[x][y] = true;
         }
         if(API::wallRight()){
-            API::setWall(x,15-y,'E');
+            //std::cerr<<"\t-Wall in Right"<<std::endl;
+            API::setWall(y,15-x,'e');
             this->East_[x][y] = true;
         }
         if(API::wallLeft()){
-            API::setWall(x,15-y,'W');
+            //std::cerr<<"\t-Wall in Left"<<std::endl;
+            API::setWall(y,15-x,'w');
             this->West_[x][y] = true;
         }
     }
     if(direction == 'E'){
         if(API::wallFront()){
-            API::setWall(x,15-y,'E');
+            //std::cerr<<"\t-Wall in Front"<<std::endl;
+            API::setWall(y,15-x,'e');
             this->East_[x][y] = true;
         }
         if(API::wallRight()){
-            API::setWall(x,15-y,'S');
+            //std::cerr<<"\t-Wall in Right"<<std::endl;
+            API::setWall(y,15-x,'s');
             this->South_[x][y] = true;
         }
         if(API::wallLeft()){
-            API::setWall(x,15-y,'N');
+            //std::cerr<<"\t-Wall in Left"<<std::endl;
+            API::setWall(y,15-x,'n');
             this->North_[x][y] = true;
         }
     }
     if(direction == 'W'){
         if(API::wallFront()){
-            API::setWall(x,15-y,'W');
+            //std::cerr<<"\t-Wall in Front"<<std::endl;
+            API::setWall(y,15-x,'w');
             this->West_[x][y] = true;
         }
         if(API::wallRight()){
-            API::setWall(x,15-y,'N');
+            //std::cerr<<"\t-Wall in Right"<<std::endl;
+            API::setWall(y,15-x,'n');
             this->North_[x][y] = true;
         }
         if(API::wallLeft()){
-            API::setWall(x,15-y,'S');
+            //std::cerr<<"\t-Wall in Left"<<std::endl;
+            API::setWall(y,15-x,'s');
             this->South_[x][y] = true;
         }
     }
     if(direction == 'S'){
         if(API::wallFront()){
-            API::setWall(x,15-y,'S');
+            //std::cerr<<"\t-Wall in Front"<<std::endl;
+            API::setWall(y,15-x,'s');
             this->South_[x][y] = true;
         }
         if(API::wallRight()){
-            API::setWall(x,15-y,'W');
+            //std::cerr<<"\t-Wall in Right"<<std::endl;
+            API::setWall(y,15-x,'w');
             this->West_[x][y] = true;
         }
         if(API::wallLeft()){
-            API::setWall(x,15-y,'E');
+            //std::cerr<<"\t-Wall in Left"<<std::endl;
+            API::setWall(y,15-x,'e');
             this->East_[x][y] = true;
         }
     }
@@ -98,7 +110,6 @@
  * @param &X
  * @param &Y
  */
-void fp::Maze::ColorPath(std::vector<int> &X, std::vector<int> &Y) {
-    for(unsigned int i=0 ; i<X.size() ; i++)
-        API::setColor(X[i],Y[i],'b'); //Sets color to the path x,y as blue by calling the API function.
+void fp::Maze::ColorPath(std::array<int,2> node) {
+    API::setColor(node[1],15-node[0],'b'); //Sets color to the path x,y as blue by calling the API function.
 }
