@@ -35,22 +35,14 @@ void fp::Algorithm::ClearStack() {
 }
 
 /**
- * @brief takes a node as input and return true if the node visited or else false
+ * @brief takes a node as input and verify whether the node has been explored
  * @param std::array<int, 2> cur_node
- * @return Returns int
- */
-bool fp::Algorithm ::IsVisited(std::array<int, 2> cur_node){
-    return this->visited_node_.at(cur_node.at(0)).at(cur_node.at(1));
-}
-
-/**
- * @brief takes a node as input and return true if the node explored or else false
- * @param std::array<int, 2> cur_node
- * @return Returns int
+ * @return Returns true if the node is already explored or else false
  */
 bool fp::Algorithm ::IsExplored(std::array<int, 2> cur_node){
     return this->explored_node_.at(cur_node.at(0)).at(cur_node.at(1));
 }
+
 /**
  * @brief Add the neighbour to the stack
  * @param std::array<int, 2> cur_node
@@ -58,10 +50,8 @@ bool fp::Algorithm ::IsExplored(std::array<int, 2> cur_node){
  * @return Returns boolean
  */
 bool fp::Algorithm::AddNeighbour(std::array<int, 2> cur_node, std::array<int, 2> neighbour) {
-
     if(!IsExplored(neighbour)) {
         this->stack_.push(neighbour);
-        if(!IsVisited(neighbour)) this->node_master_[neighbour[0]][neighbour[1]].parent_node_ = cur_node;
         this->node_info[neighbour[0]][neighbour[1]].parent_node_ = cur_node;
         if (neighbour == this->goal1_ || neighbour == this->goal2_ ||
             neighbour == this->goal3_||neighbour == this->goal4_) {
@@ -84,11 +74,13 @@ void fp::Algorithm::FindNeighbours(std::array<int, 2> cur_node) {
     E{this->maze_info.East_[cur_node[0]][cur_node[1]]},
     W{this->maze_info.West_[cur_node[0]][cur_node[1]]};
 
+    //---> Compute the neighbouring possible  nodes <---//
     std::array<int, 2> node_N{cur_node[0] - 1, cur_node[1]},
     node_W{cur_node[0], cur_node[1] - 1},
     node_S{cur_node[0] + 1, cur_node[1]},
     node_E{cur_node[0], cur_node[1] + 1};
 
+    //---> Adds neighbouring nodes to the stack based on the robot direction in the maze <---//
     if(robotDirection == 'N'){
         if (!this->temp_goal_ && node_S[0] <= 15 && !S) AddNeighbour(cur_node, node_S);
         if (!this->temp_goal_ && node_E[1] <= 15 && !E) AddNeighbour(cur_node, node_E);
@@ -117,12 +109,12 @@ void fp::Algorithm::FindNeighbours(std::array<int, 2> cur_node) {
 }
 
 /**
- * @brief takes start and goal nodes and implements Depth First Search algorithm
+ * @brief takes start and implements Depth First Search algorithm
  * @param std::array<int, 2> start
- * @param std::array<int, 2> goal
- * @return none
+ * @return Returns true if there exist a path to goal
  */
 bool fp::Algorithm::DFSAlgorithm(std::array<int, 2> start) {
+    std::array<int,2> curr_node{};
     this->temp_goal_=false;
     //---> Reset Stack and exploration History <---//
     this->ClearStack();
@@ -135,31 +127,18 @@ bool fp::Algorithm::DFSAlgorithm(std::array<int, 2> start) {
     /* ---> Step 03: loop until stack_ exhausts <--- */
     while(!this->stack_.empty()) {
         /* ---> Step 04: Set Current Node <--- */
-        this->current_node_ = stack_.top();                                                                   //--> Set the top last-in node as current node
-        this->stack_.pop();                                                                                   //--> Pop/remove the last element from the stack
+        curr_node = stack_.top();                                                                   //--> Set the top last-in node as current node
+        this->stack_.pop();                                                                         //--> Pop/remove the last element from the stack
         /* ---> Step 05: check IsGoal <--- */
-        if (this->current_node_ == this->goal1_) {
-            this->end_goal_ = this->goal1_;
-            return true;
-        }
-        else if (this->current_node_ == this->goal2_) {
-            this->end_goal_ = this->goal2_;
-            return true;
-        }
-        else if (this->current_node_ == this->goal3_) {
-            this->end_goal_ = this->goal3_;
-            return true;
-        }
-        else if (this->current_node_ == this->goal4_) {
-            this->end_goal_ = this->goal4_;
+        if (curr_node == this->goal1_ || curr_node == this->goal2_ ||
+            curr_node == this->goal3_ || curr_node == this->goal4_) {
+            this->end_goal_ = curr_node;
             return true;
         }
         /* ---> Step 06: Check Visited <--- */
-        else if (!IsVisited(this->current_node_) || !IsExplored(this->current_node_))
-            FindNeighbours(this->current_node_);
+        else if (!IsExplored(curr_node)) FindNeighbours(curr_node);
         /* ---> Step 07: Mark visited <--- */
-        this->visited_node_[current_node_[0]][current_node_[1]] = true;
-        this->explored_node_[current_node_[0]][current_node_[1]] = true;
+        this->explored_node_[curr_node[0]][curr_node[1]] = true;
     }
     return false;
 }
@@ -187,28 +166,24 @@ std::stack<std::array<int, 2>> fp::Algorithm::BackTrack(std::array<int, 2> curre
  * @return Returns std::stack<std::array<int, 2>>
  */
 void fp::Algorithm::Solve(const std::shared_ptr<fp::LandBasedRobot>& robot) {
-    bool path = false;
+    bool path {};
     this->robot_= robot;
     char curr_direction{};
     std::array<int,2> curr_node{};
-    std::array<int,2> next_node{};
-    std::stack<std::array<int, 2>> local_path;
-
+    std::stack<std::array<int, 2>> local_path{};
     curr_direction = robot->get_direction_();
     curr_node = {robot->get_x_(), robot->get_y_()};
-    this->node_master_[curr_node[0]][curr_node[1]].parent_node_ = curr_node;
+    this->node_info[curr_node[0]][curr_node[1]].parent_node_ = curr_node;
 
     //---> Step 01: Clear all tile color <---//
     SetDefaults();
-    int step=1;
     while(true){
-        std::cerr<<"\n\n---------------------Step: "<<step<<"---------------------------"<<std::endl;
         //---> Step 02: Read walls around the robot <---//
         this->maze_info.ReadMaze(curr_node, curr_direction);
         if (this->path_blocked) {
-            SetDefaults();
             //---> Step 03: Generate Path using DFS Algorithm <---//
             path = this->DFSAlgorithm(curr_node);
+            SetDefaults();
             //---> Step 04: BackTrack the current path <---//
             if(path) {
                 local_path = this->BackTrack(this->end_goal_, this->node_info);
@@ -229,9 +204,8 @@ void fp::Algorithm::Solve(const std::shared_ptr<fp::LandBasedRobot>& robot) {
             fp::API::setColor(curr_node[1],15-curr_node[0], 'r');
             return;
         }
-        step++;
     }
-    std::cerr<<"\nNo path found!"<<std::endl;
+    std::cerr<<"\nNo path found!\n"<<std::endl;
 }
 
 /**
@@ -263,37 +237,24 @@ void fp::Algorithm::Navigate(std::stack<std::array<int, 2>>& local_path) {
     //---> Step 03: Navigate the Robot and update new location and direction info <---//
     if(curr_direction =='N'){
         if(direction_togo == 'N') {
-            if(!fp::API::wallFront()){
-                this->robot_->MoveForward();
-                this->robot_->set_x_(node_next[0]);
-                this->robot_->set_y_(node_next[1]);
-                this->robot_->set_direction_(direction_togo);
-            }else this->path_blocked = true;
+            if(!fp::API::wallFront()) this->robot_->MoveForward(node_next[0], node_next[1], direction_togo);
+            else this->path_blocked = true;
         }
         else if(direction_togo == 'S') {
             this->robot_->TurnLeft();
             this->robot_->TurnLeft();
-            this->robot_->set_direction_(direction_togo);
-            this->robot_->MoveForward();
-            this->robot_->set_x_(node_next[0]);
-            this->robot_->set_y_(node_next[1]);
+            this->robot_->MoveForward(node_next[0], node_next[1], direction_togo);
         }
         else if(direction_togo == 'E') {
             if(!fp::API::wallRight()) {
                 this->robot_->TurnRight();
-                this->robot_->set_direction_(direction_togo);
-                this->robot_->MoveForward();
-                this->robot_->set_x_(node_next[0]);
-                this->robot_->set_y_(node_next[1]);
+                this->robot_->MoveForward(node_next[0], node_next[1], direction_togo);
             }else this->path_blocked = true;
         }
         else if(direction_togo == 'W') {
             if(!fp::API::wallLeft()) {
                 this->robot_->TurnLeft();
-                this->robot_->set_direction_(direction_togo);
-                this->robot_->MoveForward();
-                this->robot_->set_x_(node_next[0]);
-                this->robot_->set_y_(node_next[1]);
+                this->robot_->MoveForward(node_next[0], node_next[1], direction_togo);
             }else this->path_blocked = true;
         }
     }
@@ -301,35 +262,22 @@ void fp::Algorithm::Navigate(std::stack<std::array<int, 2>>& local_path) {
         if(direction_togo == 'N') {
             this->robot_->TurnLeft();
             this->robot_->TurnLeft();
-            this->robot_->set_direction_(direction_togo);
-            this->robot_->MoveForward();
-            this->robot_->set_x_(node_next[0]);
-            this->robot_->set_y_(node_next[1]);
+            this->robot_->MoveForward(node_next[0], node_next[1], direction_togo);
         }
         else if(direction_togo == 'S') {
-            if(!fp::API::wallFront()) {
-                this->robot_->MoveForward();
-                this->robot_->set_x_(node_next[0]);
-                this->robot_->set_y_(node_next[1]);
-                this->robot_->set_direction_(direction_togo);
-            }else this->path_blocked = true;
+            if(!fp::API::wallFront()) this->robot_->MoveForward(node_next[0], node_next[1], direction_togo);
+            else this->path_blocked = true;
         }
         else if(direction_togo == 'E') {
             if(!fp::API::wallLeft()) {
                 this->robot_->TurnLeft();
-                this->robot_->MoveForward();
-                this->robot_->set_x_(node_next[0]);
-                this->robot_->set_y_(node_next[1]);
-                this->robot_->set_direction_(direction_togo);
+                this->robot_->MoveForward(node_next[0], node_next[1], direction_togo);
             }else this->path_blocked = true;
         }
         else if(direction_togo == 'W') {
             if(!fp::API::wallRight()){
                 this->robot_->TurnRight();
-                this->robot_->set_direction_(direction_togo);
-                this->robot_->MoveForward();
-                this->robot_->set_x_(node_next[0]);
-                this->robot_->set_y_(node_next[1]);
+                this->robot_->MoveForward(node_next[0], node_next[1], direction_togo);
             }else this->path_blocked = true;
         }
     }
@@ -337,72 +285,46 @@ void fp::Algorithm::Navigate(std::stack<std::array<int, 2>>& local_path) {
         if(direction_togo == 'N') {
             if(!fp::API::wallLeft()) {
                 this->robot_->TurnLeft();
-                this->robot_->set_direction_(direction_togo);
-                this->robot_->MoveForward();
-                this->robot_->set_x_(node_next[0]);
-                this->robot_->set_y_(node_next[1]);
+                this->robot_->MoveForward(node_next[0], node_next[1], direction_togo);
             }else this->path_blocked = true;
         }
         else if(direction_togo == 'S') {
             if(!fp::API::wallRight()) {
                 this->robot_->TurnRight();
-                this->robot_->MoveForward();
-                this->robot_->set_x_(node_next[0]);
-                this->robot_->set_y_(node_next[1]);
-                this->robot_->set_direction_(direction_togo);
+                this->robot_->MoveForward(node_next[0], node_next[1], direction_togo);
             }else this->path_blocked = true;
         }
         else if(direction_togo == 'E') {
-            if(!fp::API::wallFront()) {
-                this->robot_->MoveForward();
-                this->robot_->set_x_(node_next[0]);
-                this->robot_->set_y_(node_next[1]);
-                this->robot_->set_direction_(direction_togo);
-            }else this->path_blocked = true;
+            if(!fp::API::wallFront()) this->robot_->MoveForward(node_next[0], node_next[1], direction_togo);
+            else this->path_blocked = true;
         }
         else if(direction_togo == 'W') {
             this->robot_->TurnLeft();
             this->robot_->TurnLeft();
-            this->robot_->MoveForward();
-            this->robot_->set_x_(node_next[0]);
-            this->robot_->set_y_(node_next[1]);
-            this->robot_->set_direction_(direction_togo);
+            this->robot_->MoveForward(node_next[0], node_next[1], direction_togo);
         }
     }
     else if(curr_direction =='W') {
         if(direction_togo == 'N') {
             if(!fp::API::wallRight()) {
                 this->robot_->TurnRight();
-                this->robot_->set_direction_(direction_togo);
-                this->robot_->MoveForward();
-                this->robot_->set_x_(node_next[0]);
-                this->robot_->set_y_(node_next[1]);
+                this->robot_->MoveForward(node_next[0], node_next[1], direction_togo);
             }else this->path_blocked = true;
         }
         else if(direction_togo == 'S') {
             if(!fp::API::wallLeft()) {
                 this->robot_->TurnLeft();
-                this->robot_->set_direction_(direction_togo);
-                this->robot_->MoveForward();
-                this->robot_->set_x_(node_next[0]);
-                this->robot_->set_y_(node_next[1]);
+                this->robot_->MoveForward(node_next[0], node_next[1], direction_togo);
             }else this->path_blocked = true;
         }
         else if(direction_togo == 'E') {
             this->robot_->TurnLeft();
             this->robot_->TurnLeft();
-            this->robot_->set_direction_(direction_togo);
-            this->robot_->MoveForward();
-            this->robot_->set_x_(node_next[0]);
-            this->robot_->set_y_(node_next[1]);
+            this->robot_->MoveForward(node_next[0], node_next[1], direction_togo);
         }
         else if(direction_togo == 'W') {
-            if(!fp::API::wallFront()) {
-                this->robot_->MoveForward();
-                this->robot_->set_x_(node_next[0]);
-                this->robot_->set_y_(node_next[1]);
-                this->robot_->set_direction_(direction_togo);
-            }else this->path_blocked = true;
+            if(!fp::API::wallFront()) this->robot_->MoveForward(node_next[0], node_next[1], direction_togo);
+            else this->path_blocked = true;
         }
     }
 }
