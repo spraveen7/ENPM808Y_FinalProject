@@ -23,131 +23,118 @@
 *  and method prototypes.
 */
 
-
 #pragma once
-#include <string>
+
 #include<iostream>
+#include <memory>
 #include "../LandBasedRobot/landbasedrobot.h"
 
 namespace fp {
     class LandBasedTracked : public LandBasedRobot{
     protected:
-        //--attributes
-        std::string track_type_;       //--Type of track mounted on the robot
-
-    protected:
-        //--methods prototypes
-        /**
-         * @brief it is a pure virtual method that gets the direction of the robot in the maze
-         * @param string
-         * @return Returns none
-         */
-        virtual char GetDirection() override;       //--Get the direction of the robot in the maze
-
-        /**
-         * @brief it is a pure virtual method that moves the robot forward in the maze
-         * @param int x_
-         * @param int y_
-         * @return Returns none
-         */
-        virtual void MoveForward() override;     //--Moves the robot forward
-
-        /**
-         * @brief it is a pure virtual method that rotates the robot 90°counter-clockwise in the maze
-         * @param int x_
-         * @param int y_
-         * @return Returns none
-         */
-        virtual void TurnLeft() override;       //--Rotates the robot 90°counter-clockwise
-
-        /**
-         * @brief it is a pure virtual method that rotates the robot 90°clockwise in the maze
-         * @param int x_
-         * @param int y_
-         * @return Returns none
-         */
-        virtual void TurnRight() override;      //--Rotates the robot 90°clockwise
+        //---> Attributes <---//
+        std::shared_ptr<std::string> track_type_;       //--Type of track mounted on the robot
 
     public:
-        //--constructor
+        //---> Constructor 01: Default constructor <---//
+        /**
+         * @brief default constructor of the class LandBasedTracked
+         */
+        LandBasedTracked():LandBasedRobot(), track_type_{nullptr}{}
 
+        //---> Constructor 03: Constructor with 1 Argument as input <---//
         /**
          * @brief it is a constructor of the class LandBasedTracked
-         * @param string name_
-         * @param double speed_
-         * @param double width_
-         * @param double length_
-         * @param double height_
-         * @param double capacity_
-         * @param int x_
-         * @param int y_
-         * @param char direction_
-         * @param string track_type_
+         * @param string name
+         * @return Returns none
+         */
+        explicit LandBasedTracked(std::string name):
+                LandBasedRobot(name), track_type_{nullptr}{}
+
+        //---> Constructor 03: Constructor with 3 Arguments as input <---//
+        /**
+         * @brief it is a constructor of the class LandBasedTracked
+         * @param string name
+         * @param int x
+         * @param int y
+         * @return Returns none
+         */
+        LandBasedTracked(std::string name, int x, int y):
+                LandBasedRobot(name, x, y), track_type_{nullptr}{}
+
+        //---> Constructor 04: Constructor with all Arguments as input <---//
+        /**
+         * @brief it is a constructor of the class LandBasedTracked
+         * @param string name
+         * @param double speed
+         * @param double width
+         * @param double length
+         * @param double height
+         * @param double capacity
+         * @param int x
+         * @param int y
+         * @param char direction
+         * @param string track_type
          * @return Returns none
          */
 
-        LandBasedTracked(std::string track_type_, std::string name_, double speed_, double width_, double length_, double height_, double capacity_, int x_, int y_, char direction_): LandBasedRobot(name_, speed_, width_, length_, height_, capacity_, x_, y_, direction_), track_type_{}{
-            name_ =  name_;
-            speed_ = speed_;
-            width_ = width_;
-            length_ = length_;
-            height_ = height_;
-            capacity_ = capacity_;
-            direction_ = direction_;
-            x_ = x_;
-            y_ = y_;
-            track_type_ = track_type_;
-        }
+        LandBasedTracked(std::string name, double speed, double width, double length, double height, double capacity, int x, int y, char direction, std::shared_ptr<std::string> track_type):
+                LandBasedRobot(name, speed, width, length, height, capacity, x, y, direction), track_type_{std::move(track_type)}{ }
 
-        //--destructor
+        //---> Destructor <---//
         /**
          * @brief it is a destructor of the class LandBasedTracked and deletes the objects created
          * @param none
          * @return Returns none
          */
 
-        ~LandBasedTracked(){}
+        ~LandBasedTracked()= default;
 
-    public:
-        //--mutators
-
+        //---> Method prototypes <---//
         /**
-         * @brief it is a setter method for the x-axis
-         * @param int x_
+         * @brief it is a pure virtual method that gets the direction of the robot in the maze
+         * @param string
          * @return Returns none
          */
-        void set_x_(int x_){
-            x_ = x_;
-        }
+        char GetDirection() override;       //--Get the direction of the robot in the maze
 
         /**
-         * @brief it is a setter method for the y-axis
-         * @param int y_
+         * @brief it is a pure virtual method that moves the robot forward in the maze
+         * @param none
          * @return Returns none
          */
-        void set_y_(int y_){
-            y_ = y_;
-        }
-
-
-        //--accessors
+        void MoveForward(int x, int y, char direction) override;     //--Moves the robot forward
 
         /**
-         * @brief it is a getter method for the x-axis
+         * @brief it is a pure virtual method that rotates the robot 90°counter-clockwise in the maze
          * @param none
-         * @return Returns int x_
+         * @return Returns none
          */
-        int get_x_() const{
-            return x_;
-        }
+        void TurnLeft() override;       //--Rotates the robot 90°counter-clockwise
+
         /**
-         * @brief it is a getter method for the y-axis
+         * @brief it is a pure virtual method that rotates the robot 90°clockwise in the maze
          * @param none
-         * @return Returns int y_
+         * @return Returns none
          */
-        int get_y_() const {
-            return y_;
-        }
+        void TurnRight() override;      //--Rotates the robot 90°clockwise
+
+        /**
+        * @brief it is a pure virtual method that picks up an object
+        * @param none
+        * @return Returns none
+        */
+        void PickUp(std::string string) override;                //--picks up the payload
+
+        /**
+        * @brief it is a pure virtual method that release the robot gripper
+        * @param none
+        * @return Returns none
+        */
+        void Release(std::string string) override;              //--Releases the payload
+
 
     };//--Class LandBasedTracked
 }//--namespace fp
+
+

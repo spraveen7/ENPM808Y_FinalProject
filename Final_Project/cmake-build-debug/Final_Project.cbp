@@ -8,28 +8,28 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/karan/CLionProjects/Final_Project/cmake-build-debug"/>
+				<Option working_dir="/home/karan/Desktop/Final_Project/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/karan/CLionProjects/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/karan/CLionProjects/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/karan/CLionProjects/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/karan/CLionProjects/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/karan/Desktop/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/karan/Desktop/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/karan/Desktop/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/karan/Desktop/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/karan/CLionProjects/Final_Project/cmake-build-debug"/>
+				<Option working_dir="/home/karan/Desktop/Final_Project/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/karan/CLionProjects/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/karan/CLionProjects/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/karan/CLionProjects/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/karan/CLionProjects/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/karan/Desktop/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/karan/Desktop/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/karan/Desktop/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/karan/Desktop/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Final_Project">
-				<Option output="/home/karan/CLionProjects/Final_Project/cmake-build-debug/Final_Project" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/karan/CLionProjects/Final_Project/cmake-build-debug"/>
+				<Option output="/home/karan/Desktop/Final_Project/cmake-build-debug/Final_Project" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/karan/Desktop/Final_Project/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -44,15 +44,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/karan/CLionProjects/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 Final_Project"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/karan/CLionProjects/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/karan/CLionProjects/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/karan/CLionProjects/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/karan/Desktop/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 Final_Project"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/karan/Desktop/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/karan/Desktop/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/karan/Desktop/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Final_Project/fast">
-				<Option output="/home/karan/CLionProjects/Final_Project/cmake-build-debug/Final_Project" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/karan/CLionProjects/Final_Project/cmake-build-debug"/>
+				<Option output="/home/karan/Desktop/Final_Project/cmake-build-debug/Final_Project" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/karan/Desktop/Final_Project/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -67,63 +67,63 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/karan/CLionProjects/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 Final_Project/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/karan/CLionProjects/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/karan/CLionProjects/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/karan/CLionProjects/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/karan/Desktop/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 Final_Project/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/karan/Desktop/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/karan/Desktop/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/karan/Desktop/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/karan/CLionProjects/Final_Project/cmake-build-debug"/>
+				<Option working_dir="/home/karan/Desktop/Final_Project/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/karan/CLionProjects/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/karan/CLionProjects/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/karan/CLionProjects/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/karan/CLionProjects/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/karan/Desktop/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/karan/Desktop/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/karan/Desktop/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/karan/Desktop/Final_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/karan/CLionProjects/Final_Project/main.cpp">
+		<Unit filename="/home/karan/Desktop/Final_Project/main.cpp">
 			<Option target="Final_Project"/>
 		</Unit>
-		<Unit filename="/home/karan/CLionProjects/Final_Project/src/API/api.cpp">
+		<Unit filename="/home/karan/Desktop/Final_Project/src/API/api.cpp">
 			<Option target="Final_Project"/>
 		</Unit>
-		<Unit filename="/home/karan/CLionProjects/Final_Project/src/API/api.h">
+		<Unit filename="/home/karan/Desktop/Final_Project/src/API/api.h">
 			<Option target="Final_Project"/>
 		</Unit>
-		<Unit filename="/home/karan/CLionProjects/Final_Project/src/DFSAlgorithm/dfsalgorithm.cpp">
+		<Unit filename="/home/karan/Desktop/Final_Project/src/Algorithm/algorithm.cpp">
 			<Option target="Final_Project"/>
 		</Unit>
-		<Unit filename="/home/karan/CLionProjects/Final_Project/src/DFSAlgorithm/dfsalgorithm.h">
+		<Unit filename="/home/karan/Desktop/Final_Project/src/Algorithm/algorithm.h">
 			<Option target="Final_Project"/>
 		</Unit>
-		<Unit filename="/home/karan/CLionProjects/Final_Project/src/LandBasedRobot/landbasedrobot.cpp">
+		<Unit filename="/home/karan/Desktop/Final_Project/src/LandBasedRobot/landbasedrobot.cpp">
 			<Option target="Final_Project"/>
 		</Unit>
-		<Unit filename="/home/karan/CLionProjects/Final_Project/src/LandBasedRobot/landbasedrobot.h">
+		<Unit filename="/home/karan/Desktop/Final_Project/src/LandBasedRobot/landbasedrobot.h">
 			<Option target="Final_Project"/>
 		</Unit>
-		<Unit filename="/home/karan/CLionProjects/Final_Project/src/LandBasedTracked/landbasedtracked.cpp">
+		<Unit filename="/home/karan/Desktop/Final_Project/src/LandBasedTracked/landbasedtracked.cpp">
 			<Option target="Final_Project"/>
 		</Unit>
-		<Unit filename="/home/karan/CLionProjects/Final_Project/src/LandBasedTracked/landbasedtracked.h">
+		<Unit filename="/home/karan/Desktop/Final_Project/src/LandBasedTracked/landbasedtracked.h">
 			<Option target="Final_Project"/>
 		</Unit>
-		<Unit filename="/home/karan/CLionProjects/Final_Project/src/LandBasedWheeled/landbasedwheeled.cpp">
+		<Unit filename="/home/karan/Desktop/Final_Project/src/LandBasedWheeled/landbasedwheeled.cpp">
 			<Option target="Final_Project"/>
 		</Unit>
-		<Unit filename="/home/karan/CLionProjects/Final_Project/src/LandBasedWheeled/landbasedwheeled.h">
+		<Unit filename="/home/karan/Desktop/Final_Project/src/LandBasedWheeled/landbasedwheeled.h">
 			<Option target="Final_Project"/>
 		</Unit>
-		<Unit filename="/home/karan/CLionProjects/Final_Project/src/MazeFiles/mazefile.cpp">
+		<Unit filename="/home/karan/Desktop/Final_Project/src/Maze/maze.cpp">
 			<Option target="Final_Project"/>
 		</Unit>
-		<Unit filename="/home/karan/CLionProjects/Final_Project/src/MazeFiles/mazefile.h">
+		<Unit filename="/home/karan/Desktop/Final_Project/src/Maze/maze.h">
 			<Option target="Final_Project"/>
 		</Unit>
-		<Unit filename="/home/karan/CLionProjects/Final_Project/CMakeLists.txt">
+		<Unit filename="/home/karan/Desktop/Final_Project/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

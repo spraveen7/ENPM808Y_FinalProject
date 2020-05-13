@@ -3,22 +3,20 @@
 
 CMakeFiles/Final_Project.dir/main.cpp.o: ../main.cpp
 CMakeFiles/Final_Project.dir/main.cpp.o: ../src/API/api.h
-CMakeFiles/Final_Project.dir/main.cpp.o: ../src/DFSAlgorithm/dfsalgorithm.h
+CMakeFiles/Final_Project.dir/main.cpp.o: ../src/Algorithm/algorithm.h
 CMakeFiles/Final_Project.dir/main.cpp.o: ../src/LandBasedRobot/landbasedrobot.h
 CMakeFiles/Final_Project.dir/main.cpp.o: ../src/LandBasedTracked/landbasedtracked.h
 CMakeFiles/Final_Project.dir/main.cpp.o: ../src/LandBasedWheeled/landbasedwheeled.h
-CMakeFiles/Final_Project.dir/main.cpp.o: ../src/MazeFiles/mazefile.h
+CMakeFiles/Final_Project.dir/main.cpp.o: ../src/Maze/maze.h
 
 CMakeFiles/Final_Project.dir/src/API/api.cpp.o: ../src/API/api.cpp
 CMakeFiles/Final_Project.dir/src/API/api.cpp.o: ../src/API/api.h
 
-CMakeFiles/Final_Project.dir/src/DFSAlgorithm/dfsalgorithm.cpp.o: ../src/API/api.h
-CMakeFiles/Final_Project.dir/src/DFSAlgorithm/dfsalgorithm.cpp.o: ../src/DFSAlgorithm/dfsalgorithm.cpp
-CMakeFiles/Final_Project.dir/src/DFSAlgorithm/dfsalgorithm.cpp.o: ../src/DFSAlgorithm/dfsalgorithm.h
-CMakeFiles/Final_Project.dir/src/DFSAlgorithm/dfsalgorithm.cpp.o: ../src/LandBasedRobot/landbasedrobot.h
-CMakeFiles/Final_Project.dir/src/DFSAlgorithm/dfsalgorithm.cpp.o: ../src/LandBasedTracked/landbasedtracked.h
-CMakeFiles/Final_Project.dir/src/DFSAlgorithm/dfsalgorithm.cpp.o: ../src/LandBasedWheeled/landbasedwheeled.h
-CMakeFiles/Final_Project.dir/src/DFSAlgorithm/dfsalgorithm.cpp.o: ../src/MazeFiles/mazefile.h
+CMakeFiles/Final_Project.dir/src/Algorithm/algorithm.cpp.o: ../src/API/api.h
+CMakeFiles/Final_Project.dir/src/Algorithm/algorithm.cpp.o: ../src/Algorithm/algorithm.cpp
+CMakeFiles/Final_Project.dir/src/Algorithm/algorithm.cpp.o: ../src/Algorithm/algorithm.h
+CMakeFiles/Final_Project.dir/src/Algorithm/algorithm.cpp.o: ../src/LandBasedRobot/landbasedrobot.h
+CMakeFiles/Final_Project.dir/src/Algorithm/algorithm.cpp.o: ../src/Maze/maze.h
 
 CMakeFiles/Final_Project.dir/src/LandBasedRobot/landbasedrobot.cpp.o: ../src/LandBasedRobot/landbasedrobot.cpp
 CMakeFiles/Final_Project.dir/src/LandBasedRobot/landbasedrobot.cpp.o: ../src/LandBasedRobot/landbasedrobot.h
@@ -33,7 +31,7 @@ CMakeFiles/Final_Project.dir/src/LandBasedWheeled/landbasedwheeled.cpp.o: ../src
 CMakeFiles/Final_Project.dir/src/LandBasedWheeled/landbasedwheeled.cpp.o: ../src/LandBasedWheeled/landbasedwheeled.cpp
 CMakeFiles/Final_Project.dir/src/LandBasedWheeled/landbasedwheeled.cpp.o: ../src/LandBasedWheeled/landbasedwheeled.h
 
-CMakeFiles/Final_Project.dir/src/MazeFiles/mazefile.cpp.o: ../src/API/api.h
-CMakeFiles/Final_Project.dir/src/MazeFiles/mazefile.cpp.o: ../src/MazeFiles/mazefile.cpp
-CMakeFiles/Final_Project.dir/src/MazeFiles/mazefile.cpp.o: ../src/MazeFiles/mazefile.h
+CMakeFiles/Final_Project.dir/src/Maze/maze.cpp.o: ../src/API/api.h
+CMakeFiles/Final_Project.dir/src/Maze/maze.cpp.o: ../src/Maze/maze.cpp
+CMakeFiles/Final_Project.dir/src/Maze/maze.cpp.o: ../src/Maze/maze.h
 

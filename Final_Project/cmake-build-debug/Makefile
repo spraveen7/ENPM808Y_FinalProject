@@ -48,10 +48,10 @@ RM = /opt/clion-2019.3.5/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/karan/CLionProjects/Final_Project
+CMAKE_SOURCE_DIR = /home/karan/Desktop/Final_Project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/karan/CLionProjects/Final_Project/cmake-build-debug
+CMAKE_BINARY_DIR = /home/karan/Desktop/Final_Project/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/karan/CLionProjects/Final_Project/cmake-build-debug/CMakeFiles /home/karan/CLionProjects/Final_Project/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/karan/Desktop/Final_Project/cmake-build-debug/CMakeFiles /home/karan/Desktop/Final_Project/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/karan/CLionProjects/Final_Project/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/karan/Desktop/Final_Project/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -177,32 +177,32 @@ src/API/api.cpp.s:
 	$(MAKE) -f CMakeFiles/Final_Project.dir/build.make CMakeFiles/Final_Project.dir/src/API/api.cpp.s
 .PHONY : src/API/api.cpp.s
 
-src/DFSAlgorithm/dfsalgorithm.o: src/DFSAlgorithm/dfsalgorithm.cpp.o
+src/Algorithm/algorithm.o: src/Algorithm/algorithm.cpp.o
 
-.PHONY : src/DFSAlgorithm/dfsalgorithm.o
+.PHONY : src/Algorithm/algorithm.o
 
 # target to build an object file
-src/DFSAlgorithm/dfsalgorithm.cpp.o:
-	$(MAKE) -f CMakeFiles/Final_Project.dir/build.make CMakeFiles/Final_Project.dir/src/DFSAlgorithm/dfsalgorithm.cpp.o
-.PHONY : src/DFSAlgorithm/dfsalgorithm.cpp.o
+src/Algorithm/algorithm.cpp.o:
+	$(MAKE) -f CMakeFiles/Final_Project.dir/build.make CMakeFiles/Final_Project.dir/src/Algorithm/algorithm.cpp.o
+.PHONY : src/Algorithm/algorithm.cpp.o
 
-src/DFSAlgorithm/dfsalgorithm.i: src/DFSAlgorithm/dfsalgorithm.cpp.i
+src/Algorithm/algorithm.i: src/Algorithm/algorithm.cpp.i
 
-.PHONY : src/DFSAlgorithm/dfsalgorithm.i
+.PHONY : src/Algorithm/algorithm.i
 
 # target to preprocess a source file
-src/DFSAlgorithm/dfsalgorithm.cpp.i:
-	$(MAKE) -f CMakeFiles/Final_Project.dir/build.make CMakeFiles/Final_Project.dir/src/DFSAlgorithm/dfsalgorithm.cpp.i
-.PHONY : src/DFSAlgorithm/dfsalgorithm.cpp.i
+src/Algorithm/algorithm.cpp.i:
+	$(MAKE) -f CMakeFiles/Final_Project.dir/build.make CMakeFiles/Final_Project.dir/src/Algorithm/algorithm.cpp.i
+.PHONY : src/Algorithm/algorithm.cpp.i
 
-src/DFSAlgorithm/dfsalgorithm.s: src/DFSAlgorithm/dfsalgorithm.cpp.s
+src/Algorithm/algorithm.s: src/Algorithm/algorithm.cpp.s
 
-.PHONY : src/DFSAlgorithm/dfsalgorithm.s
+.PHONY : src/Algorithm/algorithm.s
 
 # target to generate assembly for a file
-src/DFSAlgorithm/dfsalgorithm.cpp.s:
-	$(MAKE) -f CMakeFiles/Final_Project.dir/build.make CMakeFiles/Final_Project.dir/src/DFSAlgorithm/dfsalgorithm.cpp.s
-.PHONY : src/DFSAlgorithm/dfsalgorithm.cpp.s
+src/Algorithm/algorithm.cpp.s:
+	$(MAKE) -f CMakeFiles/Final_Project.dir/build.make CMakeFiles/Final_Project.dir/src/Algorithm/algorithm.cpp.s
+.PHONY : src/Algorithm/algorithm.cpp.s
 
 src/LandBasedRobot/landbasedrobot.o: src/LandBasedRobot/landbasedrobot.cpp.o
 
@@ -285,32 +285,32 @@ src/LandBasedWheeled/landbasedwheeled.cpp.s:
 	$(MAKE) -f CMakeFiles/Final_Project.dir/build.make CMakeFiles/Final_Project.dir/src/LandBasedWheeled/landbasedwheeled.cpp.s
 .PHONY : src/LandBasedWheeled/landbasedwheeled.cpp.s
 
-src/MazeFiles/mazefile.o: src/MazeFiles/mazefile.cpp.o
+src/Maze/maze.o: src/Maze/maze.cpp.o
 
-.PHONY : src/MazeFiles/mazefile.o
+.PHONY : src/Maze/maze.o
 
 # target to build an object file
-src/MazeFiles/mazefile.cpp.o:
-	$(MAKE) -f CMakeFiles/Final_Project.dir/build.make CMakeFiles/Final_Project.dir/src/MazeFiles/mazefile.cpp.o
-.PHONY : src/MazeFiles/mazefile.cpp.o
+src/Maze/maze.cpp.o:
+	$(MAKE) -f CMakeFiles/Final_Project.dir/build.make CMakeFiles/Final_Project.dir/src/Maze/maze.cpp.o
+.PHONY : src/Maze/maze.cpp.o
 
-src/MazeFiles/mazefile.i: src/MazeFiles/mazefile.cpp.i
+src/Maze/maze.i: src/Maze/maze.cpp.i
 
-.PHONY : src/MazeFiles/mazefile.i
+.PHONY : src/Maze/maze.i
 
 # target to preprocess a source file
-src/MazeFiles/mazefile.cpp.i:
-	$(MAKE) -f CMakeFiles/Final_Project.dir/build.make CMakeFiles/Final_Project.dir/src/MazeFiles/mazefile.cpp.i
-.PHONY : src/MazeFiles/mazefile.cpp.i
+src/Maze/maze.cpp.i:
+	$(MAKE) -f CMakeFiles/Final_Project.dir/build.make CMakeFiles/Final_Project.dir/src/Maze/maze.cpp.i
+.PHONY : src/Maze/maze.cpp.i
 
-src/MazeFiles/mazefile.s: src/MazeFiles/mazefile.cpp.s
+src/Maze/maze.s: src/Maze/maze.cpp.s
 
-.PHONY : src/MazeFiles/mazefile.s
+.PHONY : src/Maze/maze.s
 
 # target to generate assembly for a file
-src/MazeFiles/mazefile.cpp.s:
-	$(MAKE) -f CMakeFiles/Final_Project.dir/build.make CMakeFiles/Final_Project.dir/src/MazeFiles/mazefile.cpp.s
-.PHONY : src/MazeFiles/mazefile.cpp.s
+src/Maze/maze.cpp.s:
+	$(MAKE) -f CMakeFiles/Final_Project.dir/build.make CMakeFiles/Final_Project.dir/src/Maze/maze.cpp.s
+.PHONY : src/Maze/maze.cpp.s
 
 # Help Target
 help:
@@ -327,9 +327,9 @@ help:
 	@echo "... src/API/api.o"
 	@echo "... src/API/api.i"
 	@echo "... src/API/api.s"
-	@echo "... src/DFSAlgorithm/dfsalgorithm.o"
-	@echo "... src/DFSAlgorithm/dfsalgorithm.i"
-	@echo "... src/DFSAlgorithm/dfsalgorithm.s"
+	@echo "... src/Algorithm/algorithm.o"
+	@echo "... src/Algorithm/algorithm.i"
+	@echo "... src/Algorithm/algorithm.s"
 	@echo "... src/LandBasedRobot/landbasedrobot.o"
 	@echo "... src/LandBasedRobot/landbasedrobot.i"
 	@echo "... src/LandBasedRobot/landbasedrobot.s"
@@ -339,9 +339,9 @@ help:
 	@echo "... src/LandBasedWheeled/landbasedwheeled.o"
 	@echo "... src/LandBasedWheeled/landbasedwheeled.i"
 	@echo "... src/LandBasedWheeled/landbasedwheeled.s"
-	@echo "... src/MazeFiles/mazefile.o"
-	@echo "... src/MazeFiles/mazefile.i"
-	@echo "... src/MazeFiles/mazefile.s"
+	@echo "... src/Maze/maze.o"
+	@echo "... src/Maze/maze.i"
+	@echo "... src/Maze/maze.s"
 .PHONY : help
 
 

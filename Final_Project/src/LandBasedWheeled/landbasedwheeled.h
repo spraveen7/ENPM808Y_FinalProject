@@ -23,130 +23,134 @@
  *  and method prototypes.
 */
 
-#pragma once
-#include <string>
-#include<iostream>
+#ifndef FINAL_PROJECT_LANDBASEDWHEELED_H
+#define FINAL_PROJECT_LANDBASEDWHEELED_H
+
+#include <memory>
 #include "../LandBasedRobot/landbasedrobot.h"
 
 namespace fp {
     class LandBasedWheeled : public LandBasedRobot {
     protected:
-        //--attributes
-        int wheel_number_;      //--Number of wheels mounted on the robot
-
-    protected:
-        //--methods prototypes
-        /**
-         * @brief it is a pure virtual method that gets the direction of the robot in the maze
-         * @param string
-         * @return Returns none
-         */
-        virtual char GetDirection() override;       //--Get the direction of the robot in the maze
-
-        /**
-         * @brief it is a pure virtual method that moves the robot forward in the maze
-         * @param int x_
-         * @param int y_
-         * @return Returns none
-         */
-        virtual void MoveForward() override;     //--Moves the robot forward
-
-        /**
-         * @brief it is a pure virtual method that rotates the robot 90°counter-clockwise in the maze
-         * @param int x_
-         * @param int y_
-         * @return Returns none
-         */
-        virtual void TurnLeft() override;       //--Rotates the robot 90°counter-clockwise
-
-        /**
-         * @brief it is a pure virtual method that rotates the robot 90°clockwise in the maze
-         * @param int x_
-         * @param int y_
-         * @return Returns none
-         */
-        virtual void TurnRight() override;      //--Rotates the robot 90°clockwise
+        //---> Attributes <---//
+        int wheel_number_;                              //--Number of wheels mounted on the robot
+        std::shared_ptr<std::string> wheel_type_;       //--Shared ptr for wheel type attribute
 
     public:
-        //--constructor
+        //---> Constructor 01: Default Constructor <---//
+        /**
+         * @brief default constructor of the class LandBasedWheeled
+         */
+        LandBasedWheeled():LandBasedRobot(), wheel_number_{}, wheel_type_{nullptr}{}
 
+        //---> Constructor 02: Constructor with 1 argument as input <---//
         /**
          * @brief it is a constructor of the class LandBasedWheeled
-         * @param string name_
-         * @param double speed_
-         * @param double width_
-         * @param double length_
-         * @param double height_
-         * @param double capacity_
-         * @param int x_
-         * @param int y_
-         * @param char direction_
-         * @param int wheel_number_
+         * @param string name
+         * @return Returns none
+         */
+        explicit LandBasedWheeled(std::string name):
+                LandBasedRobot( name), wheel_number_{}, wheel_type_{nullptr}{}
+
+        //---> Constructor 03: Constructor with 3 arguments as inputs <---//
+        /**
+         * @brief it is a constructor of the class LandBasedWheeled
+         * @param string name
+         * @param int x
+         * @param int y
+         * @return Returns none
+         */
+        LandBasedWheeled(std::string name, int x, int y):
+                LandBasedRobot( name, x, y), wheel_number_{}, wheel_type_{nullptr}{}
+
+        //---> Constructor 04: Constructor with all arguments inputs <---//
+        /**
+         * @brief it is a constructor of the class LandBasedWheeled
+         * @param string name
+         * @param double speed
+         * @param double width
+         * @param double length
+         * @param double height
+         * @param double capacity
+         * @param int x
+         * @param int y
+         * @param char direction
+         * @param int wheel_number
+         * @param shared_ptr wheel_type
          * @return Returns none
          */
 
-        LandBasedWheeled(int wheel_number_, std::string name_, double speed_, double width_, double length_, double height_, double capacity_, int x_, int y_, char direction_): LandBasedRobot(name_, speed_, width_, length_, height_, capacity_, x_, y_, direction_), wheel_number_{}{
-            name_ =  name_;
-            speed_ = speed_;
-            width_ = width_;
-            length_ = length_;
-            height_ = height_;
-            capacity_ = capacity_;
-            direction_ = direction_;
-            x_ = x_;
-            y_ = y_;
-            wheel_number_ = wheel_number_;
-        }
+        LandBasedWheeled(std::string name, double speed, double width, double length, double height, double capacity, int x, int y, char direction, int wheel_number, std::shared_ptr<std::string> wheel_type):
+                LandBasedRobot(name, speed, width, length, height, capacity, x, y, direction), wheel_number_{wheel_number}, wheel_type_{std::move(wheel_type)}{}
 
-        //--destructor
+        //---> Destructor <---//
         /**
          * @brief it is a destructor of the class LandBasedWheeled and deletes the objects created
          * @param none
          * @return Returns none
          */
 
-        ~LandBasedWheeled(){}
-
-    public:
-        //--mutators
-
+        ~LandBasedWheeled()= default;
+        //---> Method Prototypes <---//
         /**
-         * @brief it is a setter method for the x-axis
-         * @param int x_
+         * @brief it is a pure virtual method that gets the direction of the robot in the maze
+         * @param none
          * @return Returns none
          */
-        void set_x_(int x_){
-            x_ = x_;
-        }
+        char GetDirection() override;       //--Get the direction of the robot in the maze
 
         /**
-         * @brief it is a setter method for the y-axis
-         * @param int y_
+         * @brief it is a pure virtual method that moves the robot forward in the maze
+         * @param none
          * @return Returns none
          */
-        void set_y_(int y_){
-            y_ = y_;
-        }
-
-
-        //--accessors
+        void MoveForward(int x, int y, char direction) override;     //--Moves the robot forward
 
         /**
-         * @brief it is a getter method for the x-axis
+         * @brief it is a pure virtual method that rotates the robot 90°counter-clockwise in the maze
          * @param none
-         * @return Returns int x_
+         * @return Returns none
          */
-        int get_x_() const{
-            return x_;
-        }
+        void TurnLeft() override;       //--Rotates the robot 90°counter-clockwise
+
         /**
-         * @brief it is a getter method for the y-axis
+         * @brief it is a pure virtual method that rotates the robot 90°clockwise in the maze
          * @param none
-         * @return Returns int y_
+         * @return Returns none
          */
-        int get_y_() const {
-            return y_;
-        }
+        void TurnRight() override;      //--Rotates the robot 90°clockwise
+
+        /**
+        * @brief it is a pure virtual method that picks up an object
+        * @param string
+        * @return Returns none
+        */
+        void PickUp(std::string string) override;                //--picks up the payload
+
+        /**
+        * @brief it is a pure virtual method that release the robot gripper
+        * @param string
+        * @return Returns none
+        */
+        void Release(std::string string) override;              //--Releases the payload
+
+        //---> Accessors <---//
+        /**
+         * @brief it is a getter method for robot wheels number
+         * @param none
+         * @return Returns int wheel_number_
+         */
+        int getWheelNumber() const;
+
+        //---> Mutators <---//
+        /**
+         * @brief it is a setter method for the Wheel Number
+         * @param int wheelNumber
+         * @return Returns none
+         */
+        void setWheelNumber(int wheelNumber);
 
     };//--Class LandBasedWheel
 }//--namespace fp
+
+#endif //FINAL_PROJECT_LANDBASEDWHEELED_H

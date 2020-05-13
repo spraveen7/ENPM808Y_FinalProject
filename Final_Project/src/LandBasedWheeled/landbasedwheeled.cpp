@@ -22,99 +22,87 @@
 */
 
 #include "landbasedwheeled.h"
-#include <iostream>
 #include "../API/api.h"
 
+//---> Method Definitions <---//
 /**
  * @brief it is the implementation of fp::LandBasedWheeled::GetDirection() method that gets the direction of the robot in the maze
- * @param string
+ * @param none
  * @return Returns none
  */
-
 char fp::LandBasedWheeled::GetDirection() {
-    std::cout << "LandBasedWheeled::GetDirection is called\n";
-    return direction_;
+    std::cerr << "LandBasedWheeled::GetDirection is called\n";
+    return this->direction_;
 }
 
 /**
  * @brief it is the implementation of fp::LandBasedWheeled::MoveForward() method to moves the robot forward in the maze
- * @param int x_
- * @param int y_
+ * @param none
  * @return Returns none
  */
-
-void fp::LandBasedWheeled::MoveForward() {
-    std::cout << "LandBasedWheeled::MoveForward is called\n";
-    if (fp::LandBasedWheeled::GetDirection() == 'N')
-    {
-        x_ = x_;
-        y_ = y_ + 1;
-    }
-    if (fp::LandBasedWheeled::GetDirection() == 'E')
-    {
-        x_ = x_ + 1;
-        y_ = y_ ;
-    }
-    if (fp::LandBasedWheeled::GetDirection() == 'W')
-    {
-        x_ = x_ - 1;
-        y_ = y_;
-    }
-    if (fp::LandBasedWheeled::GetDirection() == 'S')
-    {
-        x_ = x_;
-        y_ = y_ - 1;
-    }
-    fp::api::moveForward();
+void fp::LandBasedWheeled::MoveForward(int x, int y, char direction) {
+    std::cerr << "LandBasedWheeled::MoveForward is called\n";
+    fp::API::moveForward();
+    this->set_x_(x);
+    this->set_y_(y);
+    this->set_direction_(direction);
 }
+
 /**
- * @brief it is the implementation of fp::LandBasedTracked::TurnLeft() method to rotates the robot 90°counter-clockwise in the maze
- * @param int x_
- * @param int y_
+ * @brief it is the implementation of fp::LandBasedWheeled::TurnLeft() method to rotates the robot 90°counter-clockwise in the maze
+ * @param none
  * @return Returns none
  */
-
 void fp::LandBasedWheeled::TurnLeft() {
-    std::cout << "LandBasedWheeled::TurnLeft is called\n";
-    {
-        if(fp::LandBasedWheeled::GetDirection() == 'N')
-            direction_ = 'W';
-
-        if(fp::LandBasedWheeled::GetDirection() == 'E')
-            direction_ = 'N';
-
-        if(fp::LandBasedWheeled::GetDirection() == 'W')
-            direction_ = 'S';
-
-        if(fp::LandBasedWheeled::GetDirection() == 'S')
-            direction_ = 'E';
-
-        fp::api::turnLeft();
-    }
+    std::cerr << "LandBasedWheeled::TurnLeft is called\n";
+    fp::API::turnLeft();
 }
 
 /**
- * @brief it is the implementation of fp::LandBasedTracked::TurnRight() method to rotates the robot 90°clockwise in the maze
- * @param int x_
- * @param int y_
+ * @brief it is the implementation of fp::LandBasedWheeled::TurnRight() method to rotates the robot 90°clockwise in the maze
+ * @param none
  * @return Returns none
  */
-
 void fp::LandBasedWheeled::TurnRight() {
-    std::cout << "LandBasedWheeled::TurnRight is called\n";
-    {
-        if(fp::LandBasedWheeled::GetDirection() == 'N')
-            direction_ = 'E';
-
-        if(fp::LandBasedWheeled::GetDirection() == 'E')
-            direction_ = 'S';
-
-        if(fp::LandBasedWheeled::GetDirection() == 'W')
-            direction_ = 'N';
-
-        if(fp::LandBasedWheeled::GetDirection() == 'S')
-            direction_ = 'W';
-
-        fp::api::turnRight();
-    }
+    std::cerr << "LandBasedWheeled::TurnRight is called\n";
+    fp::API::turnRight();
 }
+
+/**
+ * @brief it is the implementation of fp::LandBasedWheeled::PickUp() method
+ * @param string
+ * @return Returns none
+ */
+void fp::LandBasedWheeled::PickUp(std::string string) {
+    std::cerr << "LandBasedWheeled::Pickup the payload is called\n"<<string<<std::endl;
+}
+
+/**
+ * @brief it is the implementation of fp::LandBasedWheeled::Release() method
+ * @param string
+ * @return Returns none
+ */
+void fp::LandBasedWheeled::Release(std::string string) {
+    std::cerr << "LandBasedWheeled::Release payload is called\n"<<string<<std::endl;
+}
+
+//---> Accessors <---//
+/**
+ * @brief it is a getter method for robot wheels number
+ * @param none
+ * @return Returns int wheel_number_
+ */
+int fp::LandBasedWheeled::getWheelNumber() const {
+    return this->wheel_number_;
+}
+
+//---> Mutators <---//
+/**
+ * @brief it is a setter method for the Wheel Number
+ * @param int wheelNumber
+ * @return Returns none
+ */
+void fp::LandBasedWheeled::setWheelNumber(int wheelNumber) {
+    this->wheel_number_ = wheelNumber;
+}
+

@@ -6,7 +6,6 @@
 * Sudharsan Balasubramani (116298636)
 * Sai Bhamidipati (117023640)
 * Ashwin Prabhakaran (117030402)
-* Girish Ethirajan
 *
 * @version 1.0
 *
@@ -26,19 +25,26 @@
 *  through a maze to reach Goal from Start.
 */
 
-#include <iostream>
 #include <memory>
-#include <vector>
-#include <string>
-#include "src/DFSAlgorithm/dfsalgorithm.h"
+#include "src/Algorithm/algorithm.h"
 #include "src/API/api.h"
 #include "src/LandBasedWheeled/landbasedwheeled.h"
 #include "src/LandBasedTracked/landbasedtracked.h"
 
+
 int main(){
-    std::shared_ptr<fp::LandBasedRobot> wheeled = std::make_shared<fp::LandBasedWheeled>(1, "Husky", 0, 5, 5, 5, 0, 0, 0, 'N');
-    fp::DFSAlgorithm algo;
-    algo.Solve(wheeled);
-    std::cout << "Goal Reached" << std::endl;
+    std::cerr << "\n-----------------------------> Start <------------------------------\n";
+    std::shared_ptr<fp::LandBasedRobot> wheeled = std::make_shared<fp::LandBasedWheeled>("Husky");
+    fp::Algorithm algorithm;
+    algorithm.Solve(wheeled);
+    std::cerr << "\n----------------------------> The End <-----------------------------\n";
+
+//    std::cerr << "\n-----------------------------> Start <------------------------------\n";
+//    std::shared_ptr<fp::LandBasedRobot> tracked = std::make_shared<fp::LandBasedTracked>("Husky");
+//    fp::Algorithm algorithm2;
+//    algorithm2.Solve(tracked);
+//    std::cerr << "\n----------------------------> The End <-----------------------------\n";
+
+
     return 0;
 }

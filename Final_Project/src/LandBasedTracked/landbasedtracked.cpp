@@ -21,103 +21,71 @@
 *  This is implementation for the LandBasedTracked class methods.
 */
 
-#include <iostream>
+
 #include "landbasedtracked.h"
 #include "../API/api.h"
 
 /**
- * @brief it is the implementation of fp::LandBasedWheeled::GetDirection() method that gets the direction of the robot in the maze
+ * @brief it is the implementation of fp::LandBasedTracked::GetDirection() method that gets the direction of the robot in the maze
  * @param string
  * @return Returns none
  */
-
 char fp::LandBasedTracked::GetDirection() {
-    std::cout << "LandBasedWheeled::GetDirection is called\n";
-    return direction_;
+    std::cerr << "LandBasedTracked::GetDirection is called\n";
+    return this->direction_;
 }
 
 /**
- * @brief it is the implementation of fp::LandBasedWheeled::MoveForward() method to moves the robot forward in the maze
- * @param int x_
- * @param int y_
+ * @brief it is the implementation of fp::LandBasedTracked::MoveForward() method to moves the robot forward in the maze
+ * @param int x
+ * @param int y
  * @return Returns none
  */
-
-void fp::LandBasedTracked::MoveForward() {
-    std::cout << "LandBasedWheeled::MoveForward is called\n";
-    if (fp::LandBasedTracked::GetDirection() == 'N')
-    {
-        x_ = x_;
-        y_ = y_ + 1;
-    }
-    if (fp::LandBasedTracked::GetDirection() == 'E')
-    {
-        x_ = x_ + 1;
-        y_ = y_ ;
-    }
-    if (fp::LandBasedTracked::GetDirection() == 'W')
-    {
-        x_ = x_ - 1;
-        y_ = y_;
-    }
-    if (fp::LandBasedTracked::GetDirection() == 'S')
-    {
-        x_ = x_;
-        y_ = y_ - 1;
-    }
-
-    fp::api::moveForward();
+void fp::LandBasedTracked::MoveForward(int x, int y, char direction) {
+    std::cerr << "LandBasedTracked::MoveForward is called\n";
+    fp::API::moveForward();
+    this->set_x_(x);
+    this->set_y_(y);
+    this->set_direction_(direction);
 }
+
 
 /**
  * @brief it is the implementation of fp::LandBasedTracked::TurnLeft() method to rotates the robot 90°counter-clockwise in the maze
- * @param int x_
- * @param int y_
+ * @param int x
+ * @param int y
  * @return Returns none
  */
-
 void fp::LandBasedTracked::TurnLeft() {
-    std::cout << "LandBasedTracked::TurnLeft is called\n";
-    {
-        if(fp::LandBasedTracked::GetDirection() == 'N')
-            direction_ = 'W';
-
-        if(fp::LandBasedTracked::GetDirection() == 'E')
-            direction_ = 'N';
-
-        if(fp::LandBasedTracked::GetDirection() == 'W')
-            direction_ = 'S';
-
-        if(fp::LandBasedTracked::GetDirection() == 'S')
-            direction_ = 'E';
-
-        fp::api::turnLeft();
-    }
+    std::cerr << "LandBasedTracked::TurnLeft is called\n";
+    fp::API::turnLeft();
 }
 
 /**
  * @brief it is the implementation of fp::LandBasedTracked::TurnRight() method to rotates the robot 90°clockwise in the maze
- * @param int x_
- * @param int y_
+ * @param int x
+ * @param int y
  * @return Returns none
  */
-
 void fp::LandBasedTracked::TurnRight() {
-    std::cout << "LandBasedTracked::TurnRight is called\n";
-    {
-        if(fp::LandBasedTracked::GetDirection() == 'N')
-            direction_ = 'E';
-
-        if(fp::LandBasedTracked::GetDirection() == 'E')
-            direction_ = 'S';
-
-        if(fp::LandBasedTracked::GetDirection() == 'W')
-            direction_ = 'N';
-
-        if(fp::LandBasedTracked::GetDirection() == 'S')
-            direction_ = 'W';
-
-        fp::api::turnRight();
-    }
+    std::cerr << "LandBasedTracked::TurnRight is called\n";
+    fp::API::turnRight();
 }
 
+/**
+ * @brief it is the implementation of fp::LandBasedTracked::PickUp() method
+ * @param string
+ * @return Returns none
+ */
+void fp::LandBasedTracked::PickUp(std::string string) {
+    std::cerr << "LandBasedTracked::Pickup the payload is called\n"<<string<<std::endl;
+}
+
+/**
+ * @brief it is the implementation of fp::LandBasedTracked::Release() method
+ * @param string
+ * @return Returns none
+ */
+void fp::LandBasedTracked::Release(std::string string) {
+    std::cerr << "LandBasedTracked::Release payload is called\n"<<string<<std::endl;
+}

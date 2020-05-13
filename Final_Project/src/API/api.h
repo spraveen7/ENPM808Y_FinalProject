@@ -22,53 +22,160 @@
 *  between the micro-mouse simulator and the user defined functions.
 */
 
-#pragma once
-#include <string>
+#ifndef FINAL_PROJECT_API_H
+#define FINAL_PROJECT_API_H
+
+#include <iostream>
+
+
 namespace  fp {
 
-    class api {
+    class API {
 
     public:
+        //---> Constructor 01: Default constructor <---//
+        API()= default;                                                                          //--default Constructor
 
-        static int mazeWidth();
+        //---> Destructor <---//
+        ~API()= default;                                                                         //--default destructor
 
-        static int mazeHeight();
+        //---> method prototypes <---//
+        /**
+         * @brief returns the width of the maze
+         * @param none
+         * @return Returns int
+         */
+        static int mazeWidth();                                                         //--return the width of the maze
 
-        static bool wallFront();
+        /**
+         * @brief returns the height of the maze
+         * @param none
+         * @return Returns int
+         */
+        static int mazeHeight();                                                        //--return the height of the maze
 
-        static bool wallRight();
+        /**
+         * @brief returns true if there is a wall in front of the robot, else false
+         * @param none
+         * @return Returns bool
+         */
+        static bool wallFront();                                                        //--true if there is a wall in front of the robot, else false
 
-        static bool wallLeft();
+        /**
+         * @brief returns true if there is a wall in right of the robot, else false
+         * @param none
+         * @return Returns bool
+         */
+        static bool wallRight();                                                        //--true if there is a wall in right of the robot, else false
 
-        static void moveForward();
+        /**
+         * @brief returns true if there is a wall in left of the robot, else false
+         * @param none
+         * @return Returns bool
+         */
+        static bool wallLeft();                                                         //--true if there is a wall in left of the robot, else false
 
-        static void turnRight();
+        /**
+         * @brief moves the robot forward by one cell
+         * @param none
+         * @return none
+         */
+        static void moveForward();                                                      //--move the robot forward by one cell
 
-        static void turnLeft();
+        /**
+         * @brief turns the robot 90 degrees to the right
+         * @param none
+         * @return none
+         */
+        static void turnRight();                                                        //--turn the robot 90 degrees to the right
 
-        static void setWall(int x, int y, char direction);
+        /**
+         * @brief turns the robot 90 degrees to the left
+         * @param none
+         * @return none
+         */
+        static void turnLeft();                                                         //--turn the robot 90 degrees to the left
 
-        static void clearWall(int x, int y, char direction);
+        /**
+         * @brief display a wall in the maze
+         * @param int x
+         * @param int y
+         * @param char direction
+         * @return Returns none
+         */
+        static void setWall(int x, int y, char direction);                              //--display a wall in the maze
 
-        static void setColor(int x, int y, char color);
+        /**
+         * @brief clear a wall from maze
+         * @param int x
+         * @param int y
+         * @param char direction
+         * @return Returns none
+         */
+        static void clearWall(int x, int y, char direction);                            //--clear a wall from maze
 
-        static void clearColor(int x, int y);
+        /**
+         * @brief sets the given color of a cell
+         * @param int x
+         * @param int y
+         * @param char color
+         * @return Returns none
+         */
+        static void setColor(int x, int y, char color);                                 //--set color of a cell
 
-        static void clearAllColor();
+        /**
+         * @brief clear the color of a cell
+         * @param int x
+         * @param int y
+         * @return Returns none
+         */
+        static void clearColor(int x, int y);                                           //--clear the color of a cell
 
-        static void setText(int x, int y, const std::string &text);
+        /**
+         * @brief clears the color of all cell
+         * @param none
+         * @return Returns none
+         */
+        static void clearAllColor();                                                    //--clear the color of all cell
 
-        static void clearText(int x, int y);
+        /**
+         * @brief sets a text of a cell
+         * @param int x
+         * @param int y
+         * @param std::string &text
+         * @return Returns none
+         */
+        static void setText(int x, int y, const std::string &text);                     //--set the text of a cell
 
-        static void clearAllText();
+        /**
+         * @brief clear the text of a cell
+         * @param int x
+         * @param int y
+         * @return Returns none
+         */
+        static void clearText(int x, int y);                                            //--clear the text of a cell
 
-        static bool wasReset();
+        /**
+         * @brief clear the text of all cells
+         * @param none
+         * @return Returns none
+         */
+        static void clearAllText();                                                     //--clear the text of all cells
 
-        static void ackReset();
+        /**
+         * @brief returns true if the rest button was pressed, else false
+         * @param none
+         * @return Returns bool
+         */
+        static bool wasReset();                                                         //--true if the rest button was pressed, else false
 
-        api();
+        /**
+         * @brief Resets the simulation
+         * @param none
+         * @return Returns none
+         */
+        static void ackReset();                                                         //--reset simulation
+    };//--Class API
+}//--namespace fp
 
-        ~api();
-
-    };
-}
+#endif //FINAL_PROJECT_API_H
