@@ -137,6 +137,6 @@ namespace fp{
          * @return none
          */
         void SetDefaults();
-    };
-}
+    };//--Class Algorithm
+}//--namespace fp
 
