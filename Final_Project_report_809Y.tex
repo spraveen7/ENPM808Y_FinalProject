@@ -1,0 +1,182 @@
+\documentclass[11pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{amsfonts, amsmath, amssymb}
+\usepackage[none]{hyphenat}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage[nottoc, notlot, notlof]{tocbibind}
+\usepackage{mathtools}
+\usepackage{parskip}
+\setlength{\parindent}{0pt}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{bm}
+\usepackage{flexisym}
+
+\hypersetup{colorlinks=true, linkcolor=MidnightBlue, urlcolor= Blue, citecolor=BrickRed}
+\urlstyle{same}
+
+\begin{document}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.3]{Umdlogo.png} 
+\end{figure}
+\title{\textbf{ENPM809Y FINAL PROJECT\\ INTRODUCTORY ROBOT PROGRAMMING\\
+MAZE SOLVER USING DFS}}
+\author{By Group 4\\
+Karan Sutradhar - UID: 117037272\\
+Sudharsan Balasubramani - UID: 116298636\\
+Sai Praveen Bhamidipati - UID: 117023640\\
+Ashwin Prabhakaran - UID: 117030402}
+\date{\today}
+\maketitle
+
+\newpage
+\textbf{\section{INTRODUCTION}}
+The basic aim of the project is to implement a Depth-First Search algorithm which allows the robot to navigate through the maze from the start position to goal position. The exploration will follow the following four directions.\\
+
+1) Down.\\
+2) Right.\\
+3) Up.\\
+4) Left.\\
+
+For this we have created some C++ class methods which contains the implementation of Depth-First Search algorithm. These class methods are responsible for driving the robot through the maze in all the four directions.\\
+
+\textbf{DEPTH-FIRST SEARCH - DFS}\\
+
+1) Depth-First Search (DFS) is an algorithm for traversing or searching tree or graph data structures.\\
+2) The algorithm starts by selecting some arbitrary node as the root node and explores as far as possible along each branch.\\
+3) The implementation of DFS is similar to that of BFS, but differs in two ways,\\
+           a) It uses stack instead of queue.\\
+           b) It delays checking whether a vertex has been discovered until the vertex is popped from the stack rather than making this check before adding the vertex.\\
+4) After the goal is reached, it shows a path from the start node to the goal node.\\
+
+So the basic idea is to start from the root or any arbitrary node and mark the node and move to the adjacent unmarked node and continue this loop until there is no unmarked adjacent node. Then backtrack and check for other unmarked nodes and traverse them. Finally print the nodes in the path.\\
+
+\textbf{ALGORITHM}\\
+
+1) Create a recursive function that takes the index of node and a visited array.\\
+2) Mark the current node as visited and print the node.\\
+3) Traverse all the adjacent and unmarked nodes and call the recursive function with index of adjacent node.\\
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.4]{DFS_algo.png} 
+\caption{Depth First Search - DFS}
+\end{center}
+\end{figure}
+
+\textbf{\section{BACKTRACKING}}
+\textbf{Step 1:}\\
+
+Create two different node arrays, one with a local scope and the other that lives as long as the program runs.\\
+The one with the local scope lives only until the DFSAlgorithm() exits. Everytime the DFSAlgorithm() is called, the node array with the local scope will be reset.\\
+The node array with local scope is used to back track to robot's current position.\\
+The larger scope node array will be used too back track to the initial start node position.\\
+Once a node is already visited, it's parent node doesn't change even if the DFSAlgorithm() is run again.\\
+This way we can effectively do a local search and still back track to the initial start position once the robot reaches the goal node.\\
+
+\textbf{Step 2:}\\
+
+Call Backtrack(current node, node array). We need to use the node array with local scope until the robot reaches the goal node.\\
+
+\textbf{Working:}\\
+
+Once the robot reaches the goal, the current node will be the goal node.\\
+
+i) Add goal node to the stack.\\
+ii) Recursively find the parent node and add it to the stack and make parent node as current node.'\\
+iii) When the current node's parent equals the current node, we exit the loop and return the path stack.\\
+
+\textbf{Navigation:}\\ 
+
+Using the local path stack, we pop the last two nodes and compute the direction to move and execute it.\\
+
+\textbf{PSEUDO CODE}\\
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.3]{Pseudo-code.jpeg} 
+\caption{Pseudo Code}
+\end{center}
+\end{figure}
+
+\textbf{\section{CLASS METHODS}}
+The class methods we implemented in the project contains the following files which are required for the execution.\\
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.4]{Class_methods.jpeg} 
+\caption{Class methods structure}
+\end{center}
+\end{figure}
+
+\newpage
+\textbf{API}\\
+
+1) The API class is implemented so as to interact with the micromouse controller (MMS). The methods we included in this are wallFront(), wallRight(), wallLeft(). These methods are referred to as boolean functions.\\
+2) These functions will return true value if any wall is detected in their way.\\
+3) The other functions include moveFoward(), moveRight(), moveLeft(). These are the functions used for the directions which help the the robot to navigate throughout the maze.\\
+4) The setWall() is used for setting a wall at a given position.\\
+
+All the class methods included in the API class are public and can directly call those methods in our program.\\
+
+\textbf{LAND BASED ROBOT}\\
+
+1) The robots used in this project are the mobile robotis.\\
+2) The LandBasedTracked and LandBasedWheeled are the mobile robotics arms and are considered as concrete classes which are derived from the base class LandBasedRobot which is the abstract class.\\
+3) These classes follow the dynamic polymorphism as the methods are virtually overriden.\\
+
+The LandBasedRobot contains the attributes related to speed, width, length, height and capacity of the robot. The methods included are useful for the robot navigation throughout the maze. The methods we inlcuded are,\\
+
+i) GetDirection() - Gets the direction of the robot in the maze.\\
+ii) MoveForward() - Moves the robot forward.\\
+iii) TurnLeft() - Rotates the robot 90 degrees counter-clockwise.\\
+iv) TurnRight() - Rotates the robot 90 degrees clockwise.\\
+
+The TurnRight() and TurnLeft methods are only used to rotate the robot. MoveForward() method is used to move the robot again.\\
+
+\textbf{MAZE}\\
+
+1) The maze class is responsible for the information contained about the maze which is to be explored.\\
+2) The methods inlcuded in this maze file are ReadMazeFile() and colorpath(). The ReadMazeFile() updates the current position of the maze matrices and the colorpath() sets color to the path which the robot has to follow in the given maze.\\
+
+The maze we created has the dimensions $16\times16$. The maze is surrounded by walls on all the sides and also in between the maze which changes the direction of the robot if any wall is present in its way. As the robot has no knowledge about the walls, we used the API methods to check for walls. The robot always faces the north position when the simulation starts. The starting point of the robot position is always (0,0). The goal position is present at the center of the maze and the goal positions may be anywhere between (7,7), (7,8), (8,7), and (8,7).
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.4]{Maze.jpeg} 
+\caption{Maze - Coordinate system}
+\end{center}
+\end{figure}
+
+\textbf{\section{MICROMOUSE SIMULATOR}}
+In this project we used a micromouse simulator for the simulation. The micromouse simulator is an open source simulator used for the visualization of the algorithm. The API class methods help in the interaction between the program and the simulator as the API class includes information on the width, height, directions of the robot and also position of the walls.\\
+
+The robot needs to keep track of where it is, discover walls as it explores, map out the maze and detect when it has reached the goal. Having reached the goal, the robot will typically perform additional searches of the maze until it has found an optimal route from the start to the finish. Once the optimal route has been found, the robot will run that route in the shortest possible time.\\
+
+
+
+
+\newpage
+\textbf{\section{CONTRIBUTIONS}}
+1) Karan Sutradhar - \\
+2) Sudharsan Balasubramani - \\
+3) Sai Praveen Bhamidipati - \\
+4) Ashwin Prabhakaran - \\
+
+
+
+
+\textbf{\section{IMPROVEMENTS}}
+
+
+
+
+\textbf{\section{RESULTS}}
+
+
+\end{document}
