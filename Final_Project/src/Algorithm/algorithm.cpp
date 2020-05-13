@@ -44,6 +44,15 @@ bool fp::Algorithm ::IsExplored(std::array<int, 2> cur_node){
 }
 
 /**
+ * @brief takes a node as input and verify whether the node has been visited by  robot
+ * @param std::array<int, 2> cur_node
+ * @return Returns true if the node is already explored or else false
+ */
+bool fp::Algorithm ::IsVisited(std::array<int, 2> cur_node){
+    return this->visited_node_.at(cur_node.at(0)).at(cur_node.at(1));
+}
+
+/**
  * @brief Add the neighbour to the stack
  * @param std::array<int, 2> cur_node
  * @param std::array<int, 2> neighbour
@@ -151,7 +160,7 @@ bool fp::Algorithm::DFSAlgorithm(std::array<int, 2> start) {
 std::stack<std::array<int, 2>> fp::Algorithm::BackTrack(std::array<int, 2> current_node, std::array<std::array<Node, 16>, 16>& node) {
     std::array<int, 2> parent_node  = node[current_node[0]][current_node[1]].parent_node_;
     this->path_stack_.push(current_node);
-    while (!(current_node == parent_node)) {
+    while (current_node != parent_node) {
         fp::Maze::ColorPath(current_node);
         current_node = parent_node;
         parent_node = node[current_node[0]][current_node[1]].parent_node_;
@@ -174,29 +183,36 @@ void fp::Algorithm::Solve(const std::shared_ptr<fp::LandBasedRobot>& robot) {
     curr_direction = robot->GetDirection();
     curr_node = {robot->get_x_(), robot->get_y_()};
     this->node_info[curr_node[0]][curr_node[1]].parent_node_ = curr_node;
+    this->node_master_[curr_node[0]][curr_node[1]].parent_node_ = this->parent_node_;
 
     //---> Step 01: Clear all tile color <---//
     SetDefaults();
     while(true){
-        //---> Step 02: Read walls around the robot <---//
+        //---> Step 02: Mark Current Node Visited <---//
+        this->visited_node_[curr_node[0]][curr_node[1]] = true;
+        //---> Step 03: Read walls around the robot <---//
         this->maze_info.ReadMaze(curr_node, curr_direction);
         if (this->path_blocked) {
-            //---> Step 03: Generate Path using DFS Algorithm <---//
+            //---> Step 04: Generate Path using DFS Algorithm <---//
             path = this->DFSAlgorithm(curr_node);
             SetDefaults();
-            //---> Step 04: BackTrack the current path <---//
+            //---> Step 05: BackTrack the current path <---//
             if(path) {
                 local_path = this->BackTrack(this->end_goal_, this->node_info);
                 this->path_blocked = false;
             }
             else break;
         }
-        //---> Step 05: Navigate to next node <---//
+        //---> Step 06: Navigate to next node <---//
         this->Navigate(local_path);
-        //---> Step 06: Get robot current cell info <---//
+        //---> Step 07: Update the parent node <---//
+        this->parent_node_ = curr_node;
+        //---> Step 08: Update current node<---//
         curr_direction = robot->GetDirection();
         curr_node = {robot->get_x_(), robot->get_y_()};
-        //---> Step 07: Check for goal <---//
+        //---> Step 09: Update the parent node <---//
+        if (!IsVisited(curr_node)) this->node_master_[curr_node[0]][curr_node[1]].parent_node_ = this->parent_node_;
+        //---> Step 10: Check for goal <---//
         if (curr_node == this->goal1_ || curr_node == this->goal2_ ||
             curr_node == this->goal3_ || curr_node == this->goal4_) {
             SetDefaults();

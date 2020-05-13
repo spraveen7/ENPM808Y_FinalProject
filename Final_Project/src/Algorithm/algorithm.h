@@ -56,11 +56,14 @@ namespace fp{
         fp::Maze maze_info;
         char current_direction_;
         std::array<int, 2> current_node_;
+        std::array<int, 2> parent_node_;
         std::stack<std::array <int,2> > stack_;
         std::shared_ptr<fp::LandBasedRobot> robot_;
         std::stack<std::array<int, 2>> path_stack_;
         std::array<std::array<Node, 16>, 16> node_info;
+        std::array<std::array<Node, 16>, 16> node_master_;
         std::array<std::array<bool, 16>, 16> explored_node_;
+        std::array<std::array<bool, 16>, 16> visited_node_;
         std::array<int, 2> goal1_, goal2_, goal3_, goal4_, end_goal_;
 
 
@@ -68,7 +71,8 @@ namespace fp{
         //---> Constructor 01: Default Constructor <---//
         Algorithm(): path_found_{false}, current_direction_{'N'}, goal1_{8,7},
                      goal2_{8,8}, goal3_{7,8}, goal4_{7,7},
-                     end_goal_{}, current_node_{}, stack_{}, path_stack_{}, explored_node_{}, robot_{nullptr} {
+                     end_goal_{}, current_node_{}, parent_node_{}, stack_{}, path_stack_{},
+                     explored_node_{}, visited_node_{}, node_master_{}, node_info{}, robot_{nullptr} {
 
         }
         //---> Destructor <---//
@@ -76,11 +80,18 @@ namespace fp{
 
         //---> method prototypes <---//
         /**
-         * @brief takes a node as input and return true if the node visited or else false
+         * @brief takes a node as input and return true if the node is explored or else false
          * @param std::array<int, 2> cur_node
          * @return Returns true if the node is explored/visited already
          */
         bool IsExplored(std::array<int, 2> cur_node);
+
+        /**
+         * @brief takes a node as input and return true if the node is visited or else false
+         * @param std::array<int, 2> cur_node
+         * @return Returns true if the node is explored/visited already
+         */
+        bool IsVisited(std::array<int, 2> cur_node);
 
         /**
          * @brief Add the neighbours to the stack
