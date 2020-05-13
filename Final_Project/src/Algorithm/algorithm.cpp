@@ -91,29 +91,29 @@ void fp::Algorithm::FindNeighbours(std::array<int, 2> cur_node) {
 
     //---> Adds neighbouring nodes to the stack based on the robot direction in the maze <---//
     if(robotDirection == 'N'){
-        if (!this->temp_goal_ && node_S[0] <= 15 && !S) AddNeighbour(cur_node, node_S);
-        if (!this->temp_goal_ && node_E[1] <= 15 && !E) AddNeighbour(cur_node, node_E);
-        if (!this->temp_goal_ && node_N[0] >= 0 && !N) AddNeighbour(cur_node, node_N);
         if (!this->temp_goal_ && node_W[1] >= 0 && !W) AddNeighbour(cur_node, node_W);
+        if (!this->temp_goal_ && node_N[0] >= 0 && !N) AddNeighbour(cur_node, node_N);
+        if (!this->temp_goal_ && node_E[1] <= 15 && !E) AddNeighbour(cur_node, node_E);
+        if (!this->temp_goal_ && node_S[0] <= 15 && !S) AddNeighbour(cur_node, node_S);
 
     }
     else if(robotDirection == 'S') {
-        if (!this->temp_goal_ && node_N[0] >= 0 && !N) AddNeighbour(cur_node, node_N);
-        if (!this->temp_goal_ && node_W[1] >= 0 && !W) AddNeighbour(cur_node, node_W);
-        if (!this->temp_goal_ && node_S[0] <= 15 && !S) AddNeighbour(cur_node, node_S);
         if (!this->temp_goal_ && node_E[1] <= 15 && !E) AddNeighbour(cur_node, node_E);
+        if (!this->temp_goal_ && node_S[0] <= 15 && !S) AddNeighbour(cur_node, node_S);
+        if (!this->temp_goal_ && node_W[1] >= 0 && !W) AddNeighbour(cur_node, node_W);
+        if (!this->temp_goal_ && node_N[0] >= 0 && !N) AddNeighbour(cur_node, node_N);
     }
     else if(robotDirection == 'E') {
-        if (!this->temp_goal_ && node_W[1] >= 0 && !W) AddNeighbour(cur_node, node_W);
-        if (!this->temp_goal_ && node_S[0] <= 15 && !S) AddNeighbour(cur_node, node_S);
-        if (!this->temp_goal_ && node_E[1] <= 15 && !E) AddNeighbour(cur_node, node_E);
         if (!this->temp_goal_ && node_N[0] >= 0 && !N) AddNeighbour(cur_node, node_N);
+        if (!this->temp_goal_ && node_E[1] <= 15 && !E) AddNeighbour(cur_node, node_E);
+        if (!this->temp_goal_ && node_S[0] <= 15 && !S) AddNeighbour(cur_node, node_S);
+        if (!this->temp_goal_ && node_W[1] >= 0 && !W) AddNeighbour(cur_node, node_W);
     }
     else if(!this->temp_goal_ && robotDirection == 'W') {
-        if (!this->temp_goal_ && node_E[1] <= 15 && !E) AddNeighbour(cur_node, node_E);
-        if (!this->temp_goal_ && node_N[0] >= 0 && !N) AddNeighbour(cur_node, node_N);
-        if (!this->temp_goal_ && node_W[1] >= 0 && !W) AddNeighbour(cur_node, node_W);
         if (!this->temp_goal_ && node_S[0] <= 15 && !S) AddNeighbour(cur_node, node_S);
+        if (!this->temp_goal_ && node_W[1] >= 0 && !W) AddNeighbour(cur_node, node_W);
+        if (!this->temp_goal_ && node_N[0] >= 0 && !N) AddNeighbour(cur_node, node_N);
+        if (!this->temp_goal_ && node_E[1] <= 15 && !E) AddNeighbour(cur_node, node_E);
     }
 }
 
