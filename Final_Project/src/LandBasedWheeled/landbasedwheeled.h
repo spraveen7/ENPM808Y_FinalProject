@@ -23,9 +23,8 @@
  *  and method prototypes.
 */
 
-#ifndef FINAL_PROJECT_LANDBASEDWHEELED_H
-#define FINAL_PROJECT_LANDBASEDWHEELED_H
 
+#pragma once
 #include <memory>
 #include "../LandBasedRobot/landbasedrobot.h"
 
@@ -153,4 +152,3 @@ namespace fp {
     };//--Class LandBasedWheel
 }//--namespace fp
 
-#endif //FINAL_PROJECT_LANDBASEDWHEELED_H
