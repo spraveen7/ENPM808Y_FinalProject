@@ -22,8 +22,7 @@
 *  between the micro-mouse simulator and the user defined functions.
 */
 
-#ifndef FINAL_PROJECT_API_H
-#define FINAL_PROJECT_API_H
+#pragma once
 
 #include <iostream>
 
@@ -178,4 +177,4 @@ namespace  fp {
     };//--Class API
 }//--namespace fp
 
-#endif //FINAL_PROJECT_API_H
+
